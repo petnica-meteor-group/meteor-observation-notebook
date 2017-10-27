@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="vantablack">#000000</color>
-    <color name="white">#FFFFFF</color>
-    <color name="transparentWhite">#AAFFFFFF</color>
+    <color name="menu_button_text_color">#FFFFFF</color>
+    <color name="title_color">#FFFFFF</color>
+    <color name="pmg_color">#AAFFFFFF</color>
 </resources>

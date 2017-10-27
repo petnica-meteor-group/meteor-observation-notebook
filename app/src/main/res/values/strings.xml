@@ -2,4 +2,8 @@
     <string name="app_name">Visual Observation Notebook</string>
     <string name="title_activity_notebook">NotebookActivity</string>
     <string name="begin_observation">Begin Observation</string>
+    <string name="instructions">Instructions</string>
+    <string name="test_observation">Test Observation</string>
+    <string name="petnica_meteor_group">Petnica Meteor Group</string>
+    <string name="visual_observation_notebook">Visual Observation Notebook</string>
 </resources>
