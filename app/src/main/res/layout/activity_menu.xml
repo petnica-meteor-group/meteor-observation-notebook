@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context="petnicameteorgroup.visualobservationnotebook.MenuActivity">
 
-    <ImageView
-        android:id="@+id/gif"
+    <pl.droidsonroids.gif.GifImageView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:scaleType="fitXY"
-        tools:ignore="ContentDescription">
-    </ImageView>
+        android:src="@drawable/background">
+    </pl.droidsonroids.gif.GifImageView>
 
     <TextView
         android:id="@+id/title"
@@ -23,9 +22,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="4dp"
         android:text="@string/visual_observation_notebook"
-        android:textSize="28sp"
+        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:lineSpacingExtra="6dp"
         android:textColor="@color/title_color"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="100dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -37,33 +38,42 @@
 
         <Button
             android:id="@+id/begin_observation_button"
-            android:layout_width="170dp"
+            android:layout_width="160dp"
             android:layout_height="45dp"
             android:text="@string/begin_observation"
             android:textColor="@color/menu_button_text_color"
+            android:textSize="10sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="5dp"
             android:onClick="beginObservation"
             android:background="@drawable/menu_button"
-            android:layout_marginBottom="6dp">
+            android:layout_marginBottom="8dp">
         </Button>
 
         <Button
             android:id="@+id/test_observation_button"
-            android:layout_width="170dp"
+            android:layout_width="160dp"
             android:layout_height="45dp"
-            android:text="@string/test_observation"
+            android:text="@string/observation_results"
             android:textColor="@color/menu_button_text_color"
-            android:onClick="testObservation"
+            android:textSize="10sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="5dp"
+            android:onClick="showObservationResults"
             android:background="@drawable/menu_button"
-            android:layout_marginBottom="6dp">
+            android:layout_marginBottom="8dp">
         </Button>
 
         <Button
             android:id="@+id/instructions_button"
-            android:layout_width="170dp"
+            android:layout_width="160dp"
             android:layout_height="45dp"
-            android:text="@string/instructions"
+            android:text="@string/other"
             android:textColor="@color/menu_button_text_color"
-            android:onClick="showInstructions"
+            android:textSize="10sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingTop="5dp"
+            android:onClick="showOther"
             android:background="@drawable/menu_button">
         </Button>
 
@@ -75,9 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:text="@string/petnica_meteor_group"
-        android:textSize="12sp"
+        android:textSize="8sp"
         android:textColor="@color/pmg_color"/>
 
 </RelativeLayout>

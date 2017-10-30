@@ -3,6 +3,7 @@
     package="petnicameteorgroup.visualobservationnotebook">
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -18,7 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NotebookActivity"></activity>
+        <activity android:name=".NotebookActivity" />
+        <activity android:name=".ObservationResultsActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".OtherActivity"></activity>
     </application>
 
 </manifest>

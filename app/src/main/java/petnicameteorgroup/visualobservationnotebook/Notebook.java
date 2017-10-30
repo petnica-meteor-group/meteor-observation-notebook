@@ -17,17 +17,26 @@ import android.view.View;
 
 public class Notebook extends View {
 
+    private static final float TOUCH_TOLERANCE = 1;
+
     private float lastX, lastY;
-    private static final float TOUCH_TOLERANCE = 2;
+    private boolean enabled;
 
-    private Bitmap bitmap;
-    private Canvas canvas;
+    protected Bitmap bitmap;
+    protected Canvas canvas;
 
-    private Path path;
-    private Paint paint;
+    protected Path path;
+    protected Paint paint;
+
+    public Bitmap getBitmap() { return bitmap; }
+    public void enable() { enabled = true; }
+    public void disable() { enabled = false; }
 
     public Notebook(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+        bitmap = null;
+        enabled = false;
 
         path = new Path();
         paint = new Paint();
@@ -73,23 +82,23 @@ public class Notebook extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (!enabled) return true;
+
         float x = event.getX();
         float y = event.getY();
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touchStart(x, y);
-                invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
                 touchMove(x, y);
-                invalidate();
                 break;
             case MotionEvent.ACTION_UP:
                 touchUp();
-                invalidate();
                 break;
         }
+
         return true;
     }
 

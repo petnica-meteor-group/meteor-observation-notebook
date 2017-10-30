@@ -9,10 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -27,15 +24,13 @@ public class MenuActivity extends AppCompatActivity {
             if (checkSelfPermission(Manifest.permission.REORDER_TASKS) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, REQUIRED_PERMISSION_CODE);
             }
+            if (checkSelfPermission(Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.VIBRATE}, REQUIRED_PERMISSION_CODE);
+            }
         }
 
-        ImageView imageView = (ImageView) findViewById(R.id.gif);
-        Glide.with(this).load(R.drawable.background).into(imageView);
-
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/ArchitectsDaughter-Regular.ttf");
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/PressStart2P-Regular.ttf");
         ((TextView) findViewById(R.id.title)).setTypeface(font);
-
-        font = Typeface.createFromAsset(getAssets(), "fonts/JuliusSansOne-Regular.ttf");
         ((Button) findViewById(R.id.begin_observation_button)).setTypeface(font);
         ((Button) findViewById(R.id.test_observation_button)).setTypeface(font);
         ((Button) findViewById(R.id.instructions_button)).setTypeface(font);
@@ -51,12 +46,12 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(new Intent(this, NotebookActivity.class));
     }
 
-    public void testObservation(View v) {
-
+    public void showObservationResults(View v) {
+        startActivity(new Intent(this, ObservationResultsActivity.class));
     }
 
-    public void showInstructions(View v) {
-
+    public void showOther(View v) {
+        startActivity(new Intent(this, OtherActivity.class));
     }
 
 }
