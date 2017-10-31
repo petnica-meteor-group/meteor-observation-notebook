@@ -20,14 +20,10 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.REORDER_TASKS) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, REQUIRED_PERMISSION_CODE);
-            }
-            if (checkSelfPermission(Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.VIBRATE}, REQUIRED_PERMISSION_CODE);
-            }
-        }
+        getPermission(Manifest.permission.REORDER_TASKS);
+        getPermission(Manifest.permission.VIBRATE);
+        getPermission(Manifest.permission.WAKE_LOCK);
+        getPermission(Manifest.permission.DISABLE_KEYGUARD);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/PressStart2P-Regular.ttf");
         ((TextView) findViewById(R.id.title)).setTypeface(font);
@@ -35,6 +31,14 @@ public class MenuActivity extends AppCompatActivity {
         ((Button) findViewById(R.id.test_observation_button)).setTypeface(font);
         ((Button) findViewById(R.id.instructions_button)).setTypeface(font);
         ((TextView) findViewById(R.id.pmg)).setTypeface(font);
+    }
+
+    private void getPermission(String permission) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{permission}, REQUIRED_PERMISSION_CODE);
+            }
+        }
     }
 
     @Override
