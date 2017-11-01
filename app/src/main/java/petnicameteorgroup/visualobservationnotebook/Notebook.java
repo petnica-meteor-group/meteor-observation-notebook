@@ -19,24 +19,21 @@ public class Notebook extends View {
 
     private static final float TOUCH_TOLERANCE = 1;
 
-    private float lastX, lastY;
-    private boolean enabled;
+    public Bitmap getBitmap() { return bitmap; }
+    public void enable() { enabled = true; }
+    public void disable() { enabled = false; }
 
-    protected Bitmap bitmap;
+    private float lastX, lastY;
+    private boolean enabled = false;
+
+    protected Bitmap bitmap = null;
     protected Canvas canvas;
 
     protected Path path;
     protected Paint paint;
 
-    public Bitmap getBitmap() { return bitmap; }
-    public void enable() { enabled = true; }
-    public void disable() { enabled = false; }
-
     public Notebook(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
-        bitmap = null;
-        enabled = false;
 
         path = new Path();
         paint = new Paint();

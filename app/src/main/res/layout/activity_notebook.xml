@@ -6,19 +6,12 @@
     android:layout_width="match_parent">
 
     <petnicameteorgroup.visualobservationnotebook.Notebook
+        android:id="@+id/notebook"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="petnicameteorgroup.visualobservationnotebook.NotebookActivity"
         android:background="@color/vantablack"
         android:keepScreenOn="true">
     </petnicameteorgroup.visualobservationnotebook.Notebook>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/EE"
-        android:text="MEOW"
-        android:textColor="@color/title_color"/>
 
 </RelativeLayout>
