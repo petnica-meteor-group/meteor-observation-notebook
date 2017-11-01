@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="petnicameteorgroup.visualobservationnotebook.MenuActivity">
+    tools:context="petnicameteorgroup.meteorobservationnotebook.MenuActivity">
 
     <pl.droidsonroids.gif.GifImageView
         android:layout_height="match_parent"
@@ -21,7 +21,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="4dp"
-        android:text="@string/visual_observation_notebook"
+        android:text="@string/meteor_observation_notebook"
         android:textSize="18sp"
         android:textAllCaps="true"
         android:lineSpacingExtra="6dp"

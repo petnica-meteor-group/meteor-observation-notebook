@@ -1,4 +1,4 @@
-package petnicameteorgroup.visualobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook;
 
 import android.content.Context;
 import android.graphics.Canvas;

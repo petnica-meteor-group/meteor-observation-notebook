@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="petnicameteorgroup.visualobservationnotebook">
+    package="petnicameteorgroup.meteorobservationnotebook">
 
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -14,16 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuActivity">
+        <activity android:name="petnicameteorgroup.meteorobservationnotebook.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NotebookActivity" />
-        <activity android:name=".ObservationResultsActivity" />
-        <activity android:name=".OtherActivity" />
+        <activity android:name="petnicameteorgroup.meteorobservationnotebook.NotebookActivity" />
+        <activity android:name="petnicameteorgroup.meteorobservationnotebook.ObservationResultsActivity" />
+        <activity android:name="petnicameteorgroup.meteorobservationnotebook.OtherActivity" />
     </application>
 
 </manifest>

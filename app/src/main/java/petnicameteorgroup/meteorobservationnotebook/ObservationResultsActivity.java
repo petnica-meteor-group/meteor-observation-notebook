@@ -1,4 +1,4 @@
-package petnicameteorgroup.visualobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

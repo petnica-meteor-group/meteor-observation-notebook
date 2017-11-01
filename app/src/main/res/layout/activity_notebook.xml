@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <petnicameteorgroup.visualobservationnotebook.Notebook
+    <petnicameteorgroup.meteorobservationnotebook.Notebook
         android:id="@+id/notebook"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="petnicameteorgroup.visualobservationnotebook.NotebookActivity"
+        tools:context="petnicameteorgroup.meteorobservationnotebook.NotebookActivity"
         android:background="@color/vantablack"
         android:keepScreenOn="true">
-    </petnicameteorgroup.visualobservationnotebook.Notebook>
+    </petnicameteorgroup.meteorobservationnotebook.Notebook>
 
 </RelativeLayout>
