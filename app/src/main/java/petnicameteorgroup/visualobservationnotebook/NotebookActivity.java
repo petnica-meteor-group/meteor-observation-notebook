@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -17,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.OrientationEventListener;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -41,6 +43,9 @@ public class NotebookActivity extends AppCompatActivity {
 
     private NoteSaver noteSaver;
     private LockInterceptor lockInterceptor;
+
+    private OrientationEventListener orientationChangeListener;
+    private int orientation;
 
     private void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
@@ -81,6 +86,18 @@ public class NotebookActivity extends AppCompatActivity {
         notebook = (Notebook) findViewById(R.id.notebook);
         noteSaver = new NoteSaver(this);
 
+        orientationChangeListener = new OrientationEventListener(
+                getApplicationContext(), SensorManager.SENSOR_DELAY_NORMAL) {
+
+            @Override
+            public void onOrientationChanged(int orientation) {
+                synchronized (NotebookActivity.this) {
+                    NotebookActivity.this.orientation = orientation;
+                }
+            }
+
+        };
+
         lockInterceptor = new LockInterceptor(this);
         lockInterceptor.enable();
 
@@ -98,6 +115,18 @@ public class NotebookActivity extends AppCompatActivity {
                 }
             }
         }, PIN_CHECK_PERIOD_INITIAL);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        orientationChangeListener.enable();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        orientationChangeListener.disable();
     }
 
     private boolean isPinned() {

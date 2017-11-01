@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
 
 /**
@@ -23,10 +26,25 @@ public class NoteSaver {
              notesDir.mkdir();
 
          currentNotesDir = new File(notesDir, getNightName());
+         if (!currentNotesDir.exists())
+            currentNotesDir.mkdir();
     }
 
     public void save(Bitmap bitmap, long timestamp) {
-
+        File bitmapFile = new File(currentNotesDir, Long.toString(timestamp));
+        FileOutputStream out = null;
+        try {
+            out = new FileOutputStream(bitmapFile);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private String getNightName() {
