@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.REORDER_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
 
     <application
         android:allowBackup="true"
@@ -14,16 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="petnicameteorgroup.meteorobservationnotebook.MenuActivity">
+        <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="petnicameteorgroup.meteorobservationnotebook.NotebookActivity" />
-        <activity android:name="petnicameteorgroup.meteorobservationnotebook.ObservationResultsActivity" />
-        <activity android:name="petnicameteorgroup.meteorobservationnotebook.OtherActivity" />
+        <activity android:name=".NotebookActivity" />
+        <activity android:name=".NotesViewActivity" />
+        <activity android:name=".OtherActivity" />
+        <activity android:name=".ObservationResultsActivity" />
+        <activity android:name=".InstructionsActivity"></activity>
     </application>
 
 </manifest>

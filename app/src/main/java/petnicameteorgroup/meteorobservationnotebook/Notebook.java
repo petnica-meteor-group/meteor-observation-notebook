@@ -22,6 +22,7 @@ public class Notebook extends View {
     public Bitmap getBitmap() { return bitmap; }
     public void enable() { enabled = true; }
     public void disable() { enabled = false; }
+    public boolean isEnabled() { return enabled; }
 
     private float lastX, lastY;
     private boolean enabled = false;
@@ -31,6 +32,13 @@ public class Notebook extends View {
 
     protected Path path;
     protected Paint paint;
+
+    public void clear() {
+        bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap);
+
+        path.reset();
+    }
 
     public Notebook(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);

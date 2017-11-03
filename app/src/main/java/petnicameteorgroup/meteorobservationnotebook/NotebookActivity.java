@@ -16,44 +16,42 @@ import android.view.WindowManager;
 
 public class NotebookActivity extends AppCompatActivity {
 
-    private static int SPECIAL_KEY_ONE = 0;
-    private static int SPECIAL_KEY_TWO = 1;
+    protected static int SPECIAL_KEY_ONE = 0;
+    protected static int SPECIAL_KEY_TWO = 1;
 
-    private static int CONFIRM_VIBRATE_DURATION = 100;
-    private static int EXIT_VIBRATE_DURATION = 800;
+    protected static int CONFIRM_VIBRATE_DURATION = 100;
+    protected static int EXIT_VIBRATE_DURATION = 800;
 
-    private static int PIN_CHECK_PERIOD_INITIAL = 10000;
-    private static int PIN_CHECK_PERIOD = 4000;
+    protected static int PIN_CHECK_PERIOD_INITIAL = 10000;
+    protected static int PIN_CHECK_PERIOD = 4000;
 
     private Vibrator vibrator;
     private ActivityManager activityManager;
     private Handler pinHandler = new Handler();
 
-    private Notebook notebook;
-    private long lastTimestamp = -1;
-    private boolean writing = false;
+    protected Notebook notebook;
+    protected long lastTimestamp = -1;
 
-    private NoteSaver noteSaver;
+    protected NoteSaver noteSaver;
     private LockInterceptor lockInterceptor;
 
     private OrientationEventListener orientationChangeListener;
     private int orientation;
 
-    private void onSpecialKey(int key) {
+    protected void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
             lastTimestamp = System.currentTimeMillis();
             notebook.enable();
-            writing = true;
             vibrate(CONFIRM_VIBRATE_DURATION);
-        } else if (key == SPECIAL_KEY_TWO && writing) {
-            writing = false;
+        } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
             notebook.disable();
             noteSaver.save(notebook.getBitmap(), lastTimestamp);
+            notebook.clear();
             vibrate(CONFIRM_VIBRATE_DURATION);
         }
     }
 
-    private void vibrate(int duration) {
+    protected void vibrate(int duration) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             vibrator.vibrate(VibrationEffect.createOneShot(duration, VibrationEffect.DEFAULT_AMPLITUDE));
         } else {
@@ -91,7 +89,6 @@ public class NotebookActivity extends AppCompatActivity {
         };
 
         lockInterceptor = new LockInterceptor(this);
-        lockInterceptor.enable();
 
         if (!isPinned()) {
             startLockTask();
@@ -113,12 +110,14 @@ public class NotebookActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         orientationChangeListener.enable();
+        lockInterceptor.enable();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         orientationChangeListener.disable();
+        lockInterceptor.disable();
     }
 
     private boolean isPinned() {
@@ -136,8 +135,6 @@ public class NotebookActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         vibrate(EXIT_VIBRATE_DURATION);
-
-        lockInterceptor.disable();
 
         if (isPinned()) {
             stopLockTask();
