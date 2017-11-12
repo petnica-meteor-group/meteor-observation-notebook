@@ -2,6 +2,8 @@ package petnicameteorgroup.meteorobservationnotebook;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Handler;
@@ -11,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.OrientationEventListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -38,9 +41,12 @@ public class NotebookActivity extends AppCompatActivity {
     private OrientationEventListener orientationChangeListener;
     private int orientation;
 
+    private NotebookData notebookData;
+
     protected void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
             lastTimestamp = System.currentTimeMillis();
+            notebook.clear();
             notebook.enable();
             vibrate(CONFIRM_VIBRATE_DURATION);
         } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
@@ -69,11 +75,15 @@ public class NotebookActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
         getWindow().setFlags(flags, flags);
         setContentView(R.layout.activity_notebook);
+        notebook = (Notebook) findViewById(R.id.notebook);
+        notebookData = new NotebookData();
+        notebook.setData(notebookData);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
 
-        notebook = (Notebook) findViewById(R.id.notebook);
         noteSaver = new NoteSaver(this);
 
         orientationChangeListener = new OrientationEventListener(
@@ -89,6 +99,7 @@ public class NotebookActivity extends AppCompatActivity {
         };
 
         lockInterceptor = new LockInterceptor(this);
+        lockInterceptor.enable();
 
         if (!isPinned()) {
             startLockTask();
@@ -107,17 +118,23 @@ public class NotebookActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onPause() {
+        super.onPause();
+
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
+        activityManager.moveTaskToFront(getTaskId(), 0);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         orientationChangeListener.enable();
-        lockInterceptor.enable();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         orientationChangeListener.disable();
-        lockInterceptor.disable();
     }
 
     private boolean isPinned() {
@@ -140,6 +157,8 @@ public class NotebookActivity extends AppCompatActivity {
             stopLockTask();
         }
 
+        lockInterceptor.disable();
+
         super.onDestroy();
     }
 
@@ -147,24 +166,16 @@ public class NotebookActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_VOLUME_UP:
-                onSpecialKey(SPECIAL_KEY_ONE);
+                onSpecialKey(SPECIAL_KEY_TWO);
                 return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
-                onSpecialKey(SPECIAL_KEY_TWO);
+                onSpecialKey(SPECIAL_KEY_ONE);
                 return true;
             case KeyEvent.KEYCODE_HOME:
                 return true;
             default:
                 return super.onKeyDown(keyCode, event);
         }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-
-        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(ACTIVITY_SERVICE);
-        activityManager.moveTaskToFront(getTaskId(), 0);
     }
 
     @Override

@@ -20,6 +20,12 @@ public class TestNotebook extends Notebook {
     }
 
     @Override
+    public void clear() {
+        super.clear();
+        invalidate();
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 

@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -33,6 +34,13 @@ public class Notebook extends View {
     protected Path path;
     protected Paint paint;
 
+    public void setBitmapAndPath(Bitmap bitmap, Path path) {
+        this.bitmap = bitmap;
+        canvas = new Canvas(bitmap);
+
+        this.path = path;
+    }
+
     public void clear() {
         bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
@@ -42,6 +50,9 @@ public class Notebook extends View {
 
     public Notebook(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+        setBackgroundColor(getResources().getColor(R.color.vantablack));
+        setKeepScreenOn(true);
 
         path = new Path();
         paint = new Paint();
@@ -56,8 +67,10 @@ public class Notebook extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
+        if (bitmap == null) {
+            bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+            canvas = new Canvas(bitmap);
+        }
     }
 
     private void touchStart(float x, float y) {

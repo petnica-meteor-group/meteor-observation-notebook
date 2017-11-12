@@ -25,7 +25,8 @@
         <activity android:name=".NotesViewActivity" />
         <activity android:name=".OtherActivity" />
         <activity android:name=".ObservationResultsActivity" />
-        <activity android:name=".InstructionsActivity"></activity>
+        <activity android:name=".InstructionsActivity" />
+        <activity android:name=".TestNotebookActivity" />
     </application>
 
 </manifest>

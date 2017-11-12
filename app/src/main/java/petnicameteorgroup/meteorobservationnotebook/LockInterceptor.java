@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.PowerManager;
+import android.util.Log;
 
 /**
  * Created by vladi on 11/1/2017.

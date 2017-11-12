@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="petnicameteorgroup.meteorobservationnotebook.OtherActivity">
+    tools:context="petnicameteorgroup.meteorobservationnotebook.OtherActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="20dp">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:layout_margin="5dp"
+        android:onClick="showInstructions"/>
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="@string/test_notebook"
+        android:layout_margin="5dp"
+        android:onClick="testNotebook"/>
+
+</LinearLayout>
