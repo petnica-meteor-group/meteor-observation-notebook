@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import petnicameteorgroup.meteorobservationnotebook.R;
+
 /**
  * Created by vladi on 10/24/2017.
  */
@@ -20,32 +22,24 @@ public class Notebook extends View {
 
     private static final float TOUCH_TOLERANCE = 1;
 
-    public Bitmap getBitmap() { return bitmap; }
     public void enable() { enabled = true; }
     public void disable() { enabled = false; }
     public boolean isEnabled() { return enabled; }
 
+    public void setDrawing(NotebookDrawing drawing) { this.drawing = drawing; }
+    public NotebookDrawing getDrawing() { return drawing; }
+
     private float lastX, lastY;
     private boolean enabled = false;
 
-    protected Bitmap bitmap = null;
-    protected Canvas canvas;
-
-    protected Path path;
+    protected NotebookDrawing drawing = null;
     protected Paint paint;
 
-    public void setBitmapAndPath(Bitmap bitmap, Path path) {
-        this.bitmap = bitmap;
-        canvas = new Canvas(bitmap);
-
-        this.path = path;
-    }
-
     public void clear() {
-        bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
+        drawing.setBitmap(Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888));
+        drawing.setCanvas(new Canvas(drawing.getBitmap()));
 
-        path.reset();
+        drawing.getPath().reset();
     }
 
     public Notebook(Context context, @Nullable AttributeSet attrs) {
@@ -54,7 +48,6 @@ public class Notebook extends View {
         setBackgroundColor(getResources().getColor(R.color.vantablack));
         setKeepScreenOn(true);
 
-        path = new Path();
         paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(Color.BLACK);
@@ -67,15 +60,17 @@ public class Notebook extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        if (bitmap == null) {
-            bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-            canvas = new Canvas(bitmap);
+        if (drawing == null) {
+            drawing = new NotebookDrawing();
+
+            drawing.setPath(new Path());
+            clear();
         }
     }
 
     private void touchStart(float x, float y) {
-        path.reset();
-        path.moveTo(x, y);
+        drawing.getPath().reset();
+        drawing.getPath().moveTo(x, y);
 
         lastX = x;
         lastY = y;
@@ -86,16 +81,16 @@ public class Notebook extends View {
         float dy = Math.abs(y - lastY);
 
         if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
-            path.lineTo(x, y);
+            drawing.getPath().lineTo(x, y);
             lastX = x;
             lastY = y;
         }
     }
 
     private void touchUp() {
-        path.lineTo(lastX, lastY);
-        canvas.drawPath(path,  paint);
-        path.reset();
+        drawing.getPath().lineTo(lastX, lastY);
+        drawing.getCanvas().drawPath(drawing.getPath(),  paint);
+        drawing.getPath().reset();
     }
 
     @Override

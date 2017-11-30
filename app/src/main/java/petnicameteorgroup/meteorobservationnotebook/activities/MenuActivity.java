@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -47,7 +49,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void beginObservation(View v) {
-        startActivity(new Intent(this, NotebookActivity.class));
+        startActivity(new Intent(this, ObservationActivity.class));
     }
 
     public void showObservationResults(View v) {

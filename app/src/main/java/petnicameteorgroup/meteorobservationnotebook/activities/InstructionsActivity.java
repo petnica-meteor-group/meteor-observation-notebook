@@ -1,7 +1,9 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class InstructionsActivity extends AppCompatActivity {
 

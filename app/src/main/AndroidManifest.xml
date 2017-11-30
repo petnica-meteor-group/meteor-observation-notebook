@@ -14,19 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuActivity">
+        <activity android:name=".activities.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NotebookActivity" />
-        <activity android:name=".NotesViewActivity" />
-        <activity android:name=".OtherActivity" />
-        <activity android:name=".ObservationResultsActivity" />
-        <activity android:name=".InstructionsActivity" />
-        <activity android:name=".TestNotebookActivity" />
+        <activity android:name=".activities.ObservationActivity" />
+        <activity android:name=".activities.NotesViewActivity" />
+        <activity android:name=".activities.OtherActivity" />
+        <activity android:name=".activities.ObservationResultsActivity" />
+        <activity android:name=".activities.InstructionsActivity" />
+        <activity android:name=".activities.ObservationTestActivity" />
     </application>
 
 </manifest>

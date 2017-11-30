@@ -1,9 +1,11 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import petnicameteorgroup.meteorobservationnotebook.utils.NoteFragment;
 
 /**
  * Created by vladi on 11/2/2017.

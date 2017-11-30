@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,13 +9,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import petnicameteorgroup.meteorobservationnotebook.R;
+
 /**
  * Created by vladi on 11/2/2017.
  */
 
 public class NoteFragment extends Fragment {
 
-    public static final String NOTE_BITMAP_ARG = "petnicameteorgroup.meteorobservationnotebook.NoteFragment.NOTE_BITMAP_ARG";
+    public static final String NOTE_BITMAP_ARG = "petnicameteorgroup.meteorobservationnotebook.utils.NoteFragment.NOTE_BITMAP_ARG";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

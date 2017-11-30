@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+
+import petnicameteorgroup.meteorobservationnotebook.R;
+import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResults;
 
 /**
  * Created by vladi on 11/3/2017.

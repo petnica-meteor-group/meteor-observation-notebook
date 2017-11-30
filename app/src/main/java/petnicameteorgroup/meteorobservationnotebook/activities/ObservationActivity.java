@@ -1,9 +1,8 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.activities;
 
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Handler;
@@ -13,11 +12,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.OrientationEventListener;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class NotebookActivity extends AppCompatActivity {
+import petnicameteorgroup.meteorobservationnotebook.utils.LockInterceptor;
+import petnicameteorgroup.meteorobservationnotebook.utils.NoteSaver;
+import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
+import petnicameteorgroup.meteorobservationnotebook.utils.NotebookDrawing;
+import petnicameteorgroup.meteorobservationnotebook.R;
+
+public class ObservationActivity extends AppCompatActivity {
 
     protected static int SPECIAL_KEY_ONE = 0;
     protected static int SPECIAL_KEY_TWO = 1;
@@ -33,15 +37,13 @@ public class NotebookActivity extends AppCompatActivity {
     private Handler pinHandler = new Handler();
 
     protected Notebook notebook;
+    protected NoteSaver noteSaver;
     protected long lastTimestamp = -1;
 
-    protected NoteSaver noteSaver;
     private LockInterceptor lockInterceptor;
 
     private OrientationEventListener orientationChangeListener;
     private int orientation;
-
-    private NotebookData notebookData;
 
     protected void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
@@ -51,7 +53,7 @@ public class NotebookActivity extends AppCompatActivity {
             vibrate(CONFIRM_VIBRATE_DURATION);
         } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
             notebook.disable();
-            noteSaver.save(notebook.getBitmap(), lastTimestamp);
+            noteSaver.save(notebook.getDrawing().getBitmap(), lastTimestamp);
             notebook.clear();
             vibrate(CONFIRM_VIBRATE_DURATION);
         }
@@ -76,8 +78,6 @@ public class NotebookActivity extends AppCompatActivity {
         getWindow().setFlags(flags, flags);
         setContentView(R.layout.activity_notebook);
         notebook = (Notebook) findViewById(R.id.notebook);
-        notebookData = new NotebookData();
-        notebook.setData(notebookData);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -91,8 +91,8 @@ public class NotebookActivity extends AppCompatActivity {
 
             @Override
             public void onOrientationChanged(int orientation) {
-                synchronized (NotebookActivity.this) {
-                    NotebookActivity.this.orientation = orientation;
+                synchronized (ObservationActivity.this) {
+                    ObservationActivity.this.orientation = orientation;
                 }
             }
 
@@ -165,11 +165,11 @@ public class NotebookActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
-            case KeyEvent.KEYCODE_VOLUME_UP:
-                onSpecialKey(SPECIAL_KEY_TWO);
-                return true;
             case KeyEvent.KEYCODE_VOLUME_DOWN:
                 onSpecialKey(SPECIAL_KEY_ONE);
+                return true;
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                onSpecialKey(SPECIAL_KEY_TWO);
                 return true;
             case KeyEvent.KEYCODE_HOME:
                 return true;

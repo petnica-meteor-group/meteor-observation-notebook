@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
 
 /**
  * Created by vladi on 10/31/2017.
@@ -29,8 +31,8 @@ public class TestNotebook extends Notebook {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawBitmap(bitmap, 0, 0, paint);
-        canvas.drawPath(path,  paint);
+        canvas.drawBitmap(drawing.getBitmap(), 0, 0, paint);
+        canvas.drawPath(drawing.getPath(),  paint);
     }
 
     @Override

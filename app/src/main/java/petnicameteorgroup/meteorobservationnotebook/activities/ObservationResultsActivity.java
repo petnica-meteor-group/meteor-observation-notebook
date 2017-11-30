@@ -1,7 +1,6 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.activities;
 
 import android.app.ListActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -12,6 +11,10 @@ import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResults;
+import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResultsAdapter;
+import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class ObservationResultsActivity  extends ListActivity {
 

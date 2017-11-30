@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,7 +7,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Calendar;
+
+import petnicameteorgroup.meteorobservationnotebook.activities.ObservationResultsActivity;
 
 /**
  * Created by vladi on 11/1/2017.

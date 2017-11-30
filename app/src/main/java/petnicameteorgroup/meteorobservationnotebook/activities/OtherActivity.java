@@ -1,9 +1,11 @@
-package petnicameteorgroup.meteorobservationnotebook;
+package petnicameteorgroup.meteorobservationnotebook.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class OtherActivity extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class OtherActivity extends AppCompatActivity {
     }
 
     public void testNotebook(View v) {
-        startActivity(new Intent(this, TestNotebookActivity.class));
+        startActivity(new Intent(this, ObservationTestActivity.class));
     }
 
 }
