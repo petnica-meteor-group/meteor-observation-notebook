@@ -13,8 +13,11 @@ import petnicameteorgroup.meteorobservationnotebook.utils.NoteFragment;
 
 public class NotesPagerAdapter extends FragmentStatePagerAdapter {
 
-    public NotesPagerAdapter(FragmentManager fragmentManager) {
+    private Night night;
+
+    public NotesPagerAdapter(FragmentManager fragmentManager, Night night) {
         super(fragmentManager);
+        this.night = night;
     }
 
     @Override
@@ -22,7 +25,7 @@ public class NotesPagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = new NoteFragment();
 
         Bundle args = new Bundle();
-        args.putParcelable(NoteFragment.NOTE_BITMAP_ARG, null);
+        args.putParcelable(NoteFragment.NOTE_BITMAP_ARG, night.getNextNote());
         fragment.setArguments(args);
 
         return fragment;
@@ -30,12 +33,12 @@ public class NotesPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 100;
+        return night.getNoteCount();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "OBJECT " + (position + 1);
+        return "Note " + (position + 1);
     }
 
 }

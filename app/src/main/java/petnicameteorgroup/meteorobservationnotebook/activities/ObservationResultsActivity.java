@@ -1,6 +1,7 @@
 package petnicameteorgroup.meteorobservationnotebook.activities;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -9,14 +10,18 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.List;
 
-import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResults;
+import petnicameteorgroup.meteorobservationnotebook.utils.Night;
+import petnicameteorgroup.meteorobservationnotebook.utils.Nightkeeper;
 import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResultsAdapter;
 import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class ObservationResultsActivity  extends ListActivity {
+
+    private List<Night> nights;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,20 +39,21 @@ public class ObservationResultsActivity  extends ListActivity {
         ViewGroup root = (ViewGroup) findViewById(android.R.id.content);
         root.addView(progressBar);
 
-        ArrayList<ObservationResults> observationResults = getObservationResults();
+        nights = new Nightkeeper(this).getNights();
 
         ObservationResultsAdapter adapter = new ObservationResultsAdapter(
-                this, R.layout.observation_results_row, observationResults);
+                this, R.layout.observation_results_row, nights);
         setListAdapter(adapter);
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-    }
 
-    private ArrayList<ObservationResults> getObservationResults() {
-        return null;
+        Intent intent = new Intent(this, NotesViewActivity.class);
+        intent.putExtra(NotesViewActivity.NIGHT_ARG, (Serializable) nights.get(position));
+
+        startActivity(intent);
     }
 
 }

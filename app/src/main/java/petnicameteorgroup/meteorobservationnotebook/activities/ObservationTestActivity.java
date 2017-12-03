@@ -14,7 +14,7 @@ public class ObservationTestActivity extends ObservationActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_notebook);
+        setContentView(R.layout.activity_observation_test);
         notebook = (Notebook) findViewById(R.id.notebook);
     }
 

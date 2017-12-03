@@ -10,15 +10,14 @@ import android.widget.TextView;
 import java.util.List;
 
 import petnicameteorgroup.meteorobservationnotebook.R;
-import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResults;
 
 /**
  * Created by vladi on 11/3/2017.
  */
 
-public class ObservationResultsAdapter extends ArrayAdapter<ObservationResults> {
+public class ObservationResultsAdapter extends ArrayAdapter<Night> {
 
-    public ObservationResultsAdapter(Context context, int resource, List<ObservationResults> objects) {
+    public ObservationResultsAdapter(Context context, int resource, List<Night> objects) {
         super(context, resource, objects);
     }
 
@@ -32,11 +31,11 @@ public class ObservationResultsAdapter extends ArrayAdapter<ObservationResults> 
             view = layoutInflater.inflate(R.layout.observation_results_row, null);
         }
 
-        ObservationResults observationResults = getItem(position);
+        Night night = getItem(position);
 
-        if (observationResults != null) {
+        if (night != null) {
             TextView name = view.findViewById(R.id.name);
-            name.setText(observationResults.getName());
+            name.setText(night.getName());
         }
 
         return view;

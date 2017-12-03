@@ -13,9 +13,9 @@ import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
  * Created by vladi on 10/31/2017.
  */
 
-public class TestNotebook extends Notebook {
+public class NotebookTest extends Notebook {
 
-    public TestNotebook(Context context, @Nullable AttributeSet attrs) {
+    public NotebookTest(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         paint.setColor(Color.WHITE);

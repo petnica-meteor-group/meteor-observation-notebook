@@ -16,9 +16,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import petnicameteorgroup.meteorobservationnotebook.utils.LockInterceptor;
-import petnicameteorgroup.meteorobservationnotebook.utils.NoteSaver;
+import petnicameteorgroup.meteorobservationnotebook.utils.Night;
+import petnicameteorgroup.meteorobservationnotebook.utils.Nightkeeper;
 import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
-import petnicameteorgroup.meteorobservationnotebook.utils.NotebookDrawing;
 import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class ObservationActivity extends AppCompatActivity {
@@ -37,7 +37,7 @@ public class ObservationActivity extends AppCompatActivity {
     private Handler pinHandler = new Handler();
 
     protected Notebook notebook;
-    protected NoteSaver noteSaver;
+    protected Night night;
     protected long lastTimestamp = -1;
 
     private LockInterceptor lockInterceptor;
@@ -53,7 +53,7 @@ public class ObservationActivity extends AppCompatActivity {
             vibrate(CONFIRM_VIBRATE_DURATION);
         } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
             notebook.disable();
-            noteSaver.save(notebook.getDrawing().getBitmap(), lastTimestamp);
+            night.addNote(notebook.getDrawing().getBitmap(), lastTimestamp);
             notebook.clear();
             vibrate(CONFIRM_VIBRATE_DURATION);
         }
@@ -76,7 +76,7 @@ public class ObservationActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
         getWindow().setFlags(flags, flags);
-        setContentView(R.layout.activity_notebook);
+        setContentView(R.layout.activity_observation);
         notebook = (Notebook) findViewById(R.id.notebook);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -84,7 +84,7 @@ public class ObservationActivity extends AppCompatActivity {
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
 
-        noteSaver = new NoteSaver(this);
+        night = new Nightkeeper(this).getThisNight();
 
         orientationChangeListener = new OrientationEventListener(
                 getApplicationContext(), SensorManager.SENSOR_DELAY_NORMAL) {
