@@ -2,6 +2,7 @@ package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -36,6 +37,8 @@ public class NoteFragment extends Fragment {
 
         String clockTime = args.getString(NOTE_CLOCKTIME_ARG);
         TextView textView = rootView.findViewById(R.id.note_clocktime);
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/PressStart2P-Regular.ttf");
+        textView.setTypeface(font);
         textView.setText(clockTime);
 
         return rootView;

@@ -2,6 +2,7 @@ package petnicameteorgroup.meteorobservationnotebook.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -33,6 +34,9 @@ public class ObservationResultsActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_observation_results);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/PressStart2P-Regular.ttf");
+        ((TextView) findViewById(R.id.title)).setTypeface(font);
 
         final ListView listView = (ListView) findViewById(R.id.results_list_view);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

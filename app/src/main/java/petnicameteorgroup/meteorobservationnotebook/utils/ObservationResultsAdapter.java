@@ -1,6 +1,7 @@
 package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,8 @@ public class ObservationResultsAdapter extends ArrayAdapter<Night> {
 
         if (night != null) {
             TextView name = view.findViewById(R.id.name);
+            Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/PressStart2P-Regular.ttf");
+            name.setTypeface(font);
             name.setText(night.getUIName());
         }
 

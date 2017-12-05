@@ -11,6 +11,7 @@
     android:background="@drawable/background2">
 
     <Button
+        android:id="@+id/button_instructions"
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:text="@string/instructions"
@@ -24,6 +25,7 @@
     </Button>
 
     <Button
+        android:id="@+id/button_test_notebook"
         android:layout_width="160dp"
         android:layout_height="45dp"
         android:text="@string/test_notebook"
