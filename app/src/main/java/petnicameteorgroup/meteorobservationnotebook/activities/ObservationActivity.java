@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import petnicameteorgroup.meteorobservationnotebook.utils.LockInterceptor;
 import petnicameteorgroup.meteorobservationnotebook.utils.Night;
 import petnicameteorgroup.meteorobservationnotebook.utils.Nightkeeper;
+import petnicameteorgroup.meteorobservationnotebook.utils.Note;
 import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
 import petnicameteorgroup.meteorobservationnotebook.R;
 
@@ -53,7 +54,7 @@ public class ObservationActivity extends AppCompatActivity {
             vibrate(CONFIRM_VIBRATE_DURATION);
         } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
             notebook.disable();
-            night.addNote(notebook.getDrawing().getBitmap(), lastTimestamp);
+            night.addNote(new Note(notebook.getDrawing().getBitmap(), lastTimestamp));
             notebook.clear();
             vibrate(CONFIRM_VIBRATE_DURATION);
         }

@@ -3,6 +3,7 @@ package petnicameteorgroup.meteorobservationnotebook.activities;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 
 import petnicameteorgroup.meteorobservationnotebook.utils.Night;
 import petnicameteorgroup.meteorobservationnotebook.utils.NotesPagerAdapter;

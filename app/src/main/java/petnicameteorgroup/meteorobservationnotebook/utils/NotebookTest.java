@@ -17,8 +17,6 @@ public class NotebookTest extends Notebook {
 
     public NotebookTest(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-
-        paint.setColor(Color.WHITE);
     }
 
     @Override
@@ -31,8 +29,8 @@ public class NotebookTest extends Notebook {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawBitmap(drawing.getBitmap(), 0, 0, paint);
-        canvas.drawPath(drawing.getPath(),  paint);
+        canvas.drawBitmap(drawing.getBitmap(), 0, 0, pathPaint);
+        canvas.drawPath(drawing.getPath(), pathPaint);
     }
 
     @Override

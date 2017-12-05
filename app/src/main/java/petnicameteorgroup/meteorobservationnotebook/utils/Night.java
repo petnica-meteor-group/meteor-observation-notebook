@@ -2,6 +2,7 @@ package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,42 +18,38 @@ public class Night implements Serializable {
 
     private String name;
     private File notesDir;
-
     private String[] notesFilenames;
-    private int counter;
 
     public Night(String name, File notesDir) {
         this.name = name;
         this.notesDir = notesDir;
-        reset();
+        this.notesFilenames = notesDir.list();
     }
 
     public String getName() {
         return name;
     }
+    public String getUIName() { return name.replace('-', '/'); }
 
-    public void reset() {
-        notesFilenames = notesDir.list();
-        counter = 0;
-    }
-
-    public Bitmap getNextNote() {
-        if (counter == notesFilenames.length)
-            return null;
-        else
-            return BitmapFactory.decodeFile(notesFilenames[counter++]);
+    public Note getNote(int i) {
+        return new Note(
+                BitmapFactory.decodeFile(
+                        notesDir.getAbsolutePath() + File.separator +
+                                  notesFilenames[i]),
+                Long.parseLong(notesFilenames[i])
+        );
     }
 
     public int getNoteCount() {
         return notesFilenames.length;
     }
 
-    public void addNote(Bitmap note, long timestamp) {
-        File bitmapFile = new File(notesDir, Long.toString(timestamp));
+    public void addNote(Note note) {
+        File bitmapFile = new File(notesDir, Long.toString(note.getTimestamp()));
         FileOutputStream out = null;
         try {
             out = new FileOutputStream(bitmapFile);
-            note.compress(Bitmap.CompressFormat.PNG, 100, out);
+            note.getBitmap().compress(Bitmap.CompressFormat.PNG, 100, out);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {

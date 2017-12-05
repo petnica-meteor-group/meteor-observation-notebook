@@ -21,23 +21,24 @@ import petnicameteorgroup.meteorobservationnotebook.R;
 public class Notebook extends View {
 
     private static final float TOUCH_TOLERANCE = 1;
+    private static final float PAINT_WIDTH = 11f;
 
     public void enable() { enabled = true; }
     public void disable() { enabled = false; }
     public boolean isEnabled() { return enabled; }
 
-    public void setDrawing(NotebookDrawing drawing) { this.drawing = drawing; }
     public NotebookDrawing getDrawing() { return drawing; }
 
-    private float lastX, lastY;
     private boolean enabled = false;
 
     protected NotebookDrawing drawing = null;
-    protected Paint paint;
+    protected Paint pathPaint;
+    protected Paint touchPaint;
 
     public void clear() {
         drawing.setBitmap(Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888));
         drawing.setCanvas(new Canvas(drawing.getBitmap()));
+        drawing.getCanvas().drawColor(Color.WHITE);
 
         drawing.getPath().reset();
     }
@@ -48,12 +49,19 @@ public class Notebook extends View {
         setBackgroundColor(getResources().getColor(R.color.vantablack));
         setKeepScreenOn(true);
 
-        paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeJoin(Paint.Join.ROUND);
-        paint.setStrokeWidth(14f);
+        pathPaint = new Paint();
+        pathPaint.setAntiAlias(true);
+        pathPaint.setColor(Color.BLACK);
+        pathPaint.setStyle(Paint.Style.STROKE);
+        pathPaint.setStrokeJoin(Paint.Join.ROUND);
+        pathPaint.setStrokeWidth(PAINT_WIDTH);
+
+        touchPaint = new Paint();
+        touchPaint.setAntiAlias(true);
+        touchPaint.setColor(Color.BLACK);
+        touchPaint.setStyle(Paint.Style.FILL);
+        touchPaint.setStrokeJoin(Paint.Join.ROUND);
+        touchPaint.setStrokeWidth(PAINT_WIDTH);
     }
 
     @Override
@@ -69,27 +77,21 @@ public class Notebook extends View {
     }
 
     private void touchStart(float x, float y) {
+        drawing.getCanvas().drawCircle(x, y, PAINT_WIDTH / 2.0f, touchPaint);
+
         drawing.getPath().reset();
         drawing.getPath().moveTo(x, y);
-
-        lastX = x;
-        lastY = y;
     }
 
     private void touchMove(float x, float y) {
-        float dx = Math.abs(x - lastX);
-        float dy = Math.abs(y - lastY);
-
-        if (dx >= TOUCH_TOLERANCE || dy >= TOUCH_TOLERANCE) {
-            drawing.getPath().lineTo(x, y);
-            lastX = x;
-            lastY = y;
-        }
+        drawing.getPath().lineTo(x, y);
     }
 
-    private void touchUp() {
-        drawing.getPath().lineTo(lastX, lastY);
-        drawing.getCanvas().drawPath(drawing.getPath(),  paint);
+    private void touchUp(float x, float y) {
+        drawing.getCanvas().drawCircle(x, y, PAINT_WIDTH / 2.0f, touchPaint);
+
+        drawing.getPath().lineTo(x, y);
+        drawing.getCanvas().drawPath(drawing.getPath(), pathPaint);
         drawing.getPath().reset();
     }
 
@@ -108,7 +110,7 @@ public class Notebook extends View {
                 touchMove(x, y);
                 break;
             case MotionEvent.ACTION_UP:
-                touchUp();
+                touchUp(x, y);
                 break;
         }
 

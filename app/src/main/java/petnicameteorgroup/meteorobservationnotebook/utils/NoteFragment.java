@@ -1,8 +1,11 @@
 package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +30,7 @@ public class NoteFragment extends Fragment {
         Bitmap bitmap = args.getParcelable(NOTE_BITMAP_ARG);
 
         ImageView imageView = rootView.findViewById(R.id.note_image_view);
-        imageView.setImageBitmap(bitmap);
+        imageView.setBackground(new BitmapDrawable(getResources(), bitmap));
 
         return rootView;
     }

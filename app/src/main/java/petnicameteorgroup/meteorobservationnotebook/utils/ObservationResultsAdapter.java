@@ -35,7 +35,7 @@ public class ObservationResultsAdapter extends ArrayAdapter<Night> {
 
         if (night != null) {
             TextView name = view.findViewById(R.id.name);
-            name.setText(night.getName());
+            name.setText(night.getUIName());
         }
 
         return view;

@@ -1,6 +1,7 @@
 package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.content.Context;
+import android.os.Environment;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -82,10 +83,27 @@ public class Nightkeeper {
         day1 = first.get(Calendar.DAY_OF_MONTH);
         day2 = second.get(Calendar.DAY_OF_MONTH);
 
-        String nightName = "" + year1 + "_" + month1 + "_" + day1 + "-";
-        nightName += "" + year2 + "_" + month2 + "_" + day2;
+        String year = (year1 == year2 ? ("" + year1) : ("" + year1 + "-" + year2));
+        String month = (month1 == month2 ? ("" + month1) : ("" + month1 + "-" + month2));
+        String day = (day1 == day2 ? ("" + day1) : ("" + day1 + "-" + day2));
+
+        String nightName = year + "." + month + "." + day;
 
         return nightName;
+    }
+
+    public void deleteNight(String name) {
+        File nightsDir = new File(context.getFilesDir(), NIGHTS_DIR_NAME);
+        File nightDir = new File(nightsDir, name);
+        deleteRecursive(nightDir);
+    }
+
+    private void deleteRecursive(File fileOrDirectory) {
+        if (fileOrDirectory.isDirectory())
+            for (File child : fileOrDirectory.listFiles())
+                deleteRecursive(child);
+
+        fileOrDirectory.delete();
     }
 
 }
