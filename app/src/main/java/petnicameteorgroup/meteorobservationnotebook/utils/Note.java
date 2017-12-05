@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * Created by schutzekatze on 12/4/17.
@@ -33,7 +34,9 @@ public class Note {
     }
 
     public String getClockTime() {
-        return new SimpleDateFormat("HH:mm:ss").format(new Date(timestamp));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return simpleDateFormat.format(new Date(timestamp));
     }
 
 }

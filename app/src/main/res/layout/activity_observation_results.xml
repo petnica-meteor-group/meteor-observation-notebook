@@ -3,16 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background2">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/nights"
         android:textSize="25sp"
-        android:textColor="@android:color/black"
+        android:textColor="@color/title_color"
         android:textAlignment="center"
-        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
         />
 
     <TextView
@@ -20,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/empty"
-        android:textColor="@android:color/black"
+        android:textColor="@color/menu_button_text_color"
         android:textSize="20sp"
         android:textAlignment="center"
         android:visibility="gone"

@@ -2,6 +2,7 @@ package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class Nightkeeper {
         Calendar now = Calendar.getInstance();
 
         Calendar other = (Calendar) now.clone(), first, second;
-        if (now.get(Calendar.HOUR_OF_DAY) > 15) {
+        if (now.get(Calendar.HOUR_OF_DAY) >= 15) {
             other.add(Calendar.DAY_OF_MONTH, 1);
             first = now;
             second = other;

@@ -7,4 +7,5 @@
     <color name="menu_button_text_color">#FFFFFF</color>
     <color name="title_color">#FFFFFF</color>
     <color name="pmg_color">#AAFFFFFF</color>
+    <color name="note_clocktime">#FF0000</color>
 </resources>

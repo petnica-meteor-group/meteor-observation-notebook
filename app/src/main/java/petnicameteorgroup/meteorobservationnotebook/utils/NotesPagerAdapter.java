@@ -30,6 +30,7 @@ public class NotesPagerAdapter extends FragmentStatePagerAdapter {
 
         Bundle args = new Bundle();
         args.putParcelable(NoteFragment.NOTE_BITMAP_ARG, night.getNote(i).getBitmap());
+        args.putString(NoteFragment.NOTE_CLOCKTIME_ARG, night.getNote(i).getClockTime());
         fragment.setArguments(args);
 
         return fragment;
