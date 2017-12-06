@@ -54,7 +54,9 @@ public class ObservationActivity extends AppCompatActivity {
             vibrate(CONFIRM_VIBRATE_DURATION);
         } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
             notebook.disable();
-            night.addNote(new Note(notebook.getDrawing().getBitmap(), lastTimestamp));
+            if (!notebook.isBlank()) {
+                night.addNote(new Note(notebook.getDrawing().getBitmap(), lastTimestamp));
+            }
             notebook.clear();
             vibrate(CONFIRM_VIBRATE_DURATION);
         }

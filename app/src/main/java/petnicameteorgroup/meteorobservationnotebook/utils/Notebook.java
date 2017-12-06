@@ -26,14 +26,15 @@ public class Notebook extends View {
     public void enable() { enabled = true; }
     public void disable() { enabled = false; }
     public boolean isEnabled() { return enabled; }
-
     public NotebookDrawing getDrawing() { return drawing; }
+    public boolean isBlank() { return blank; }
 
     private boolean enabled = false;
 
     protected NotebookDrawing drawing = null;
     protected Paint pathPaint;
     protected Paint touchPaint;
+    protected boolean blank = true;
 
     public void clear() {
         drawing.setBitmap(Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888));
@@ -41,6 +42,8 @@ public class Notebook extends View {
         drawing.getCanvas().drawColor(Color.WHITE);
 
         drawing.getPath().reset();
+
+        blank = true;
     }
 
     public Notebook(Context context, @Nullable AttributeSet attrs) {
@@ -105,12 +108,15 @@ public class Notebook extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 touchStart(x, y);
+                blank = false;
                 break;
             case MotionEvent.ACTION_MOVE:
                 touchMove(x, y);
+                blank = false;
                 break;
             case MotionEvent.ACTION_UP:
                 touchUp(x, y);
+                blank = false;
                 break;
         }
 

@@ -23,7 +23,10 @@ public class Night implements Serializable {
     public Night(String name, File notesDir) {
         this.name = name;
         this.notesDir = notesDir;
-        this.notesFilenames = notesDir.list();
+        if (notesDir.exists())
+            this.notesFilenames = notesDir.list();
+        else
+            this.notesFilenames = null;
     }
 
     public String getName() {
@@ -32,19 +35,30 @@ public class Night implements Serializable {
     public String getUIName() { return name.replace('-', '/'); }
 
     public Note getNote(int i) {
-        return new Note(
-                BitmapFactory.decodeFile(
-                        notesDir.getAbsolutePath() + File.separator +
-                                  notesFilenames[i]),
-                Long.parseLong(notesFilenames[i])
-        );
+        if (i >= 0 && i < getNoteCount()) {
+            return new Note(
+                    BitmapFactory.decodeFile(
+                            notesDir.getAbsolutePath() + File.separator +
+                                    notesFilenames[i]),
+                    Long.parseLong(notesFilenames[i])
+            );
+        }
+        return null;
     }
 
     public int getNoteCount() {
-        return notesFilenames.length;
+        if (notesFilenames != null) {
+            return notesFilenames.length;
+        }
+        return 0;
     }
 
     public void addNote(Note note) {
+        if (notesFilenames == null) {
+            notesDir.mkdirs();
+            notesFilenames = notesDir.list();
+        }
+
         File bitmapFile = new File(notesDir, Long.toString(note.getTimestamp()));
         FileOutputStream out = null;
         try {

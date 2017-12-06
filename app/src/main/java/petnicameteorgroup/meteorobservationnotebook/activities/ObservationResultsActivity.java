@@ -40,6 +40,7 @@ public class ObservationResultsActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_observation_results);
 
         UIFont.apply(this, (TextView) findViewById(R.id.title));
+        UIFont.apply(this, (TextView) findViewById(R.id.empty_results_text));
 
         final ListView listView = (ListView) findViewById(R.id.results_list_view);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

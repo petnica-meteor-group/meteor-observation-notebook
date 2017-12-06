@@ -17,7 +17,7 @@
         android:textSize="17sp"
         android:text="hh:mm:ss"
         android:layout_marginTop="28dp"
-        android:layout_marginLeft="-18dp"
+        android:layout_marginLeft="-19dp"
         android:rotation="-90">
     </TextView>
 

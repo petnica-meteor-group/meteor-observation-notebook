@@ -55,7 +55,6 @@ public class Nightkeeper {
         String name = getThisNightName();
         File nightsDir = new File(context.getFilesDir(), NIGHTS_DIR_NAME);
         File notesDir = new File(nightsDir, name + File.separator + NOTES_DIR_NAME);
-        notesDir.mkdirs();
         return new Night(name, notesDir);
     }
 
