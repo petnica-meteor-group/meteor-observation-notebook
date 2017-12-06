@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.Serializable;
 import java.util.List;
@@ -23,6 +26,7 @@ import petnicameteorgroup.meteorobservationnotebook.R;
 import petnicameteorgroup.meteorobservationnotebook.utils.Night;
 import petnicameteorgroup.meteorobservationnotebook.utils.Nightkeeper;
 import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResultsAdapter;
+import petnicameteorgroup.meteorobservationnotebook.utils.UIFont;
 
 public class ObservationResultsActivity  extends AppCompatActivity {
 
@@ -35,8 +39,7 @@ public class ObservationResultsActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_observation_results);
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/PressStart2P-Regular.ttf");
-        ((TextView) findViewById(R.id.title)).setTypeface(font);
+        UIFont.apply(this, (TextView) findViewById(R.id.title));
 
         final ListView listView = (ListView) findViewById(R.id.results_list_view);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

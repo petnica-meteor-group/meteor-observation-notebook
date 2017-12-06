@@ -11,4 +11,31 @@
     <string name="test_notebook">Test Notebook</string>
     <string name="empty">Empty</string>
     <string name="nights">Nights</string>
+    <string name="instructions_text_1">
+        Begin observation:\n
+        \n
+        During this activity, you\'ll be writing down your observations. The screen
+        is black so as not to distract and drain battery. When you want to write something
+        down (meteor, cloudiness, etc), click Volume Down button to enable the notebook, which
+        lets you write anything down with your finger(s) on the screen.To confirm the writing,
+        click Volume Up which will disable the notebook and save whatever you wrote. Both of
+        these actions are confirmed by a short vibration. Volume Down can also be used to erase
+        the notebook if you made a mistake, and Volume Up to turn it off. While the notebook
+        is disabled (default state), you can\'t draw anything on the screen. The default buttons
+        for leaving the activity - Recent Apps, Home, Back and Lock are all disabled during
+        observation to prevent accidental leave. To finish the observation, hold down Recent Apps
+        and Back buttons.
+    </string>
+    <string name="instructions_text_2">
+        Observation results:\n
+        \n
+        After you\'ve finished observing, you can find everything you\'ve written
+        in this section, divided into nights. Swipe the screen to scroll through your notes.
+    </string>
+    <string name="instructions_text_3">
+        Test notebook:\n
+        \n
+        A simulation of an observation notebook, where you can see what you\'re writing.
+        Everything you write here is discarded and is used for testing only.
+    </string>
 </resources>

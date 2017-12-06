@@ -36,8 +36,7 @@ public class ObservationResultsAdapter extends ArrayAdapter<Night> {
 
         if (night != null) {
             TextView name = view.findViewById(R.id.name);
-            Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/PressStart2P-Regular.ttf");
-            name.setTypeface(font);
+            UIFont.apply(getContext(), name);
             name.setText(night.getUIName());
         }
 

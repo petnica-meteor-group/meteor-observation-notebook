@@ -37,8 +37,6 @@ public class NoteFragment extends Fragment {
 
         String clockTime = args.getString(NOTE_CLOCKTIME_ARG);
         TextView textView = rootView.findViewById(R.id.note_clocktime);
-        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/PressStart2P-Regular.ttf");
-        textView.setTypeface(font);
         textView.setText(clockTime);
 
         return rootView;

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import petnicameteorgroup.meteorobservationnotebook.R;
+import petnicameteorgroup.meteorobservationnotebook.utils.UIFont;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -27,12 +28,11 @@ public class MenuActivity extends AppCompatActivity {
         getPermission(Manifest.permission.WAKE_LOCK);
         getPermission(Manifest.permission.DISABLE_KEYGUARD);
 
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/PressStart2P-Regular.ttf");
-        ((TextView) findViewById(R.id.title)).setTypeface(font);
-        ((Button) findViewById(R.id.begin_observation_button)).setTypeface(font);
-        ((Button) findViewById(R.id.test_observation_button)).setTypeface(font);
-        ((Button) findViewById(R.id.instructions_button)).setTypeface(font);
-        ((TextView) findViewById(R.id.pmg)).setTypeface(font);
+        UIFont.apply(this, (TextView) findViewById(R.id.title));
+        UIFont.apply(this, (Button) findViewById(R.id.begin_observation_button));
+        UIFont.apply(this, (Button) findViewById(R.id.test_observation_button));
+        UIFont.apply(this, (Button) findViewById(R.id.instructions_button));
+        UIFont.apply(this, (TextView) findViewById(R.id.pmg));
     }
 
     private void getPermission(String permission) {

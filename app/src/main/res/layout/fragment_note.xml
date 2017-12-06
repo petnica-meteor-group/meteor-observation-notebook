@@ -14,10 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:textColor="@color/note_clocktime"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:text="hh:mm:ss"
         android:layout_marginTop="28dp"
-        android:layout_marginLeft="-14dp"
+        android:layout_marginLeft="-18dp"
         android:rotation="-90">
     </TextView>
 

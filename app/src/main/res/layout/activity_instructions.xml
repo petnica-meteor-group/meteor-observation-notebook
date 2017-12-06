@@ -5,6 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="petnicameteorgroup.meteorobservationnotebook.activities.InstructionsActivity"
-    android:background="@drawable/background2">
+    android:background="@drawable/background2"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:textSize="21sp"
+        android:textColor="@color/title_color"
+        android:textAlignment="center"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="9dp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/instructions_text_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/instructions_text_1"
+            android:textColor="@color/menu_button_text_color"
+            android:textAlignment="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/instructions_text_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/instructions_text_2"
+            android:textColor="@color/menu_button_text_color"
+            android:textAlignment="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/instructions_text_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/instructions_text_3"
+            android:textColor="@color/menu_button_text_color"
+            android:textAlignment="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="14sp"/>
+
+    </ScrollView>
 
 </LinearLayout>
