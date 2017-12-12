@@ -46,17 +46,21 @@ public class ObservationActivity extends AppCompatActivity {
     private OrientationEventListener orientationChangeListener;
     private int orientation;
 
-    protected void onSpecialKey(int key) {
+    protected synchronized void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
+            if (!notebook.isBlank()) {
+                night.addNote(new Note(notebook.getDrawing().getBitmap(), lastTimestamp));
+            }
             lastTimestamp = System.currentTimeMillis();
             notebook.clear();
             notebook.enable();
             vibrate(CONFIRM_VIBRATE_DURATION);
         } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
-            notebook.disable();
             if (!notebook.isBlank()) {
                 night.addNote(new Note(notebook.getDrawing().getBitmap(), lastTimestamp));
             }
+            lastTimestamp = -1;
+            notebook.disable();
             notebook.clear();
             vibrate(CONFIRM_VIBRATE_DURATION);
         }

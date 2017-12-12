@@ -20,8 +20,8 @@ import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class Notebook extends View {
 
-    private static final float TOUCH_TOLERANCE = 1;
-    private static final float PAINT_WIDTH = 11f;
+    protected static final float TOUCH_TOLERANCE = 1;
+    protected static final float PAINT_WIDTH = 11f;
 
     public void enable() { enabled = true; }
     public void disable() { enabled = false; }
@@ -35,6 +35,7 @@ public class Notebook extends View {
     protected Paint pathPaint;
     protected Paint touchPaint;
     protected boolean blank = true;
+    protected int lastFingerId = -1;
 
     public void clear() {
         drawing.setBitmap(Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888));
@@ -79,18 +80,28 @@ public class Notebook extends View {
         }
     }
 
-    private void touchStart(float x, float y) {
+    private void touchDown(float x, float y, int fingerId) {
         drawing.getCanvas().drawCircle(x, y, PAINT_WIDTH / 2.0f, touchPaint);
 
         drawing.getPath().reset();
         drawing.getPath().moveTo(x, y);
+
+        lastFingerId = fingerId;
     }
 
-    private void touchMove(float x, float y) {
-        drawing.getPath().lineTo(x, y);
+    private void touchMove(float x, float y, int fingerId) {
+        if (fingerId != lastFingerId) {
+            drawing.getCanvas().drawPath(drawing.getPath(), pathPaint);
+            drawing.getPath().reset();
+            drawing.getPath().moveTo(x, y);
+        } else {
+            drawing.getPath().lineTo(x, y);
+        }
+
+        lastFingerId = fingerId;
     }
 
-    private void touchUp(float x, float y) {
+    private void touchUp(float x, float y, int fingerId) {
         drawing.getCanvas().drawCircle(x, y, PAINT_WIDTH / 2.0f, touchPaint);
 
         drawing.getPath().lineTo(x, y);
@@ -105,17 +116,19 @@ public class Notebook extends View {
         float x = event.getX();
         float y = event.getY();
 
+        int fingerId = event.getPointerId(event.getActionIndex());
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                touchStart(x, y);
+                touchDown(x, y, fingerId);
                 blank = false;
                 break;
             case MotionEvent.ACTION_MOVE:
-                touchMove(x, y);
+                touchMove(x, y, fingerId);
                 blank = false;
                 break;
             case MotionEvent.ACTION_UP:
-                touchUp(x, y);
+                touchUp(x, y, fingerId);
                 blank = false;
                 break;
         }

@@ -17,12 +17,12 @@
         During this activity, you\'ll be writing down your observations. The screen
         is black so as not to distract and drain battery. When you want to write something
         down (meteor, cloudiness, etc), click Volume Down button to enable the notebook, which
-        lets you write anything down with your finger(s) on the screen.To confirm the writing,
+        lets you write anything down with your finger(s) on the screen. To confirm the writing,
         click Volume Up which will disable the notebook and save whatever you wrote. Both of
-        these actions are confirmed by a short vibration. Volume Down can also be used to erase
-        the notebook if you made a mistake, and Volume Up to turn it off. While the notebook
-        is disabled (default state), you can\'t draw anything on the screen. The default buttons
-        for leaving the activity - Recent Apps, Home, Back and Lock are all disabled during
+        these actions are confirmed by a short vibration. Volume Down also saves previous writing,
+        so you can keep clicking it after each sighting; Volume Up then turns the notebook off.
+        While the notebook is disabled (default state), you can\'t draw anything on the screen.
+        The default buttons for leaving the activity - Recent Apps, Home, Back and Lock are all disabled during
         observation to prevent accidental leave. To finish the observation, hold down Recent Apps
         and Back buttons.\n
         \n
