@@ -7,7 +7,7 @@
     tools:context="petnicameteorgroup.meteorobservationnotebook.activities.OtherActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:paddingTop="20dp"
+    android:paddingTop="100dp"
     android:background="@drawable/background2">
 
     <Button
