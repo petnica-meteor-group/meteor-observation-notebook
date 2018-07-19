@@ -1,8 +1,10 @@
 package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -11,18 +13,18 @@ import java.util.TimeZone;
  * Created by schutzekatze on 12/4/17.
  */
 
-public class Note {
+public class Note implements Serializable {
 
-    private Bitmap bitmap;
+    private String bitmapPath;
     private long timestamp;
 
-    public Note(Bitmap bitmap, long timestamp) {
-        this.bitmap = bitmap;
+    public Note(String bitmapPath, long timestamp) {
+        this.bitmapPath = bitmapPath;
         this.timestamp = timestamp;
     }
 
     public Bitmap getBitmap() {
-        return bitmap;
+        return BitmapFactory.decodeFile(bitmapPath);
     }
 
     public long getTimestamp() {

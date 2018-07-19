@@ -37,9 +37,7 @@ public class Night implements Serializable {
     public Note getNote(int i) {
         if (i >= 0 && i < getNoteCount()) {
             return new Note(
-                    BitmapFactory.decodeFile(
-                            notesDir.getAbsolutePath() + File.separator +
-                                    notesFilenames[i]),
+                    notesDir.getAbsolutePath() + File.separator + notesFilenames[i],
                     Long.parseLong(notesFilenames[i])
             );
         }
@@ -53,17 +51,16 @@ public class Night implements Serializable {
         return 0;
     }
 
-    public void addNote(Note note) {
+    public void addNote(Bitmap bitmap, long timestamp) {
         if (notesFilenames == null) {
             notesDir.mkdirs();
-            notesFilenames = notesDir.list();
         }
 
-        File bitmapFile = new File(notesDir, Long.toString(note.getTimestamp()));
+        File bitmapFile = new File(notesDir, Long.toString(timestamp));
         FileOutputStream out = null;
         try {
             out = new FileOutputStream(bitmapFile);
-            note.getBitmap().compress(Bitmap.CompressFormat.PNG, 100, out);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
@@ -73,6 +70,8 @@ public class Night implements Serializable {
                 e.printStackTrace();
             }
         }
+
+        notesFilenames = notesDir.list();
     }
 
 }

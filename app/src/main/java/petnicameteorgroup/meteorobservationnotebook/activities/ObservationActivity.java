@@ -49,7 +49,7 @@ public class ObservationActivity extends AppCompatActivity {
     protected synchronized void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
             if (!notebook.isBlank()) {
-                night.addNote(new Note(notebook.getDrawing().getBitmap(), lastTimestamp));
+                night.addNote(notebook.getDrawing().getBitmap(), lastTimestamp);
             }
             lastTimestamp = System.currentTimeMillis();
             notebook.clear();
@@ -57,7 +57,7 @@ public class ObservationActivity extends AppCompatActivity {
             vibrate(CONFIRM_VIBRATE_DURATION);
         } else if (key == SPECIAL_KEY_TWO && notebook.isEnabled()) {
             if (!notebook.isBlank()) {
-                night.addNote(new Note(notebook.getDrawing().getBitmap(), lastTimestamp));
+                night.addNote(notebook.getDrawing().getBitmap(), lastTimestamp);
             }
             lastTimestamp = -1;
             notebook.disable();

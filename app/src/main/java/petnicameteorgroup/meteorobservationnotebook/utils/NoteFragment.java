@@ -21,23 +21,19 @@ import petnicameteorgroup.meteorobservationnotebook.R;
 
 public class NoteFragment extends Fragment {
 
-    public static final String NOTE_BITMAP_ARG =
-            "petnicameteorgroup.meteorobservationnotebook.utils.NoteFragment.NOTE_BITMAP_ARG";
-    public static final String NOTE_CLOCKTIME_ARG =
-            "petnicameteorgroup.meteorobservationnotebook.utils.NoteFragment.NOTE_TIMESTAMP_ARG";
+    public static final String NOTE_ARG =
+            "petnicameteorgroup.meteorobservationnotebook.utils.NoteFragment.NOTE_ARG";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_note, container, false);
 
-        Bundle args = getArguments();
+        Note note = (Note) getArguments().getSerializable(NOTE_ARG);
 
-        Bitmap bitmap = args.getParcelable(NOTE_BITMAP_ARG);
         ImageView imageView = rootView.findViewById(R.id.note_image_view);
-        imageView.setBackground(new BitmapDrawable(getResources(), bitmap));
+        imageView.setBackground(new BitmapDrawable(getResources(), note.getBitmap()));
 
-        String clockTime = args.getString(NOTE_CLOCKTIME_ARG);
         TextView textView = rootView.findViewById(R.id.note_clocktime);
-        textView.setText(clockTime);
+        textView.setText(note.getClockTime());
 
         return rootView;
     }

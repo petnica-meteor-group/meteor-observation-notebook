@@ -7,6 +7,8 @@ import android.util.Log;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import petnicameteorgroup.meteorobservationnotebook.activities.ObservationResultsActivity;
@@ -47,6 +49,13 @@ public class Nightkeeper {
         for (File nightDir : nightsDirs) {
             nights.add(new Night(nightDir.getName(), new File(nightDir, NOTES_DIR_NAME)));
         }
+
+        Collections.sort(nights, new Comparator<Night>(){
+            public int compare(Night n1, Night n2)
+            {
+                return n1.getName().compareTo(n2.getName());
+            }
+        });
 
         return nights;
     }

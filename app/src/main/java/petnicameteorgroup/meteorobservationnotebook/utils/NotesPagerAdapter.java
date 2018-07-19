@@ -2,6 +2,7 @@ package petnicameteorgroup.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -29,8 +30,7 @@ public class NotesPagerAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = new NoteFragment();
 
         Bundle args = new Bundle();
-        args.putParcelable(NoteFragment.NOTE_BITMAP_ARG, night.getNote(i).getBitmap());
-        args.putString(NoteFragment.NOTE_CLOCKTIME_ARG, night.getNote(i).getClockTime());
+        args.putSerializable(NoteFragment.NOTE_ARG, night.getNote(i));
         fragment.setArguments(args);
 
         return fragment;
