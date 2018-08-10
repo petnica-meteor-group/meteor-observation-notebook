@@ -9,6 +9,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by schutzekatze on 12/3/17.
@@ -23,9 +26,10 @@ public class Night implements Serializable {
     public Night(String name, File notesDir) {
         this.name = name;
         this.notesDir = notesDir;
-        if (notesDir.exists())
+        if (notesDir.exists()) {
             this.notesFilenames = notesDir.list();
-        else
+            Arrays.sort(this.notesFilenames);
+        } else
             this.notesFilenames = null;
     }
 
