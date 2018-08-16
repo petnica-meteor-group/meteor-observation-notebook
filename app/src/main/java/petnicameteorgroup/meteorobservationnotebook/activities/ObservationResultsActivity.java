@@ -57,7 +57,7 @@ public class ObservationResultsActivity  extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final Night night = nights.get(i);
 
-                AlertDialog.Builder alertDialog = new  AlertDialog.Builder(ObservationResultsActivity.this);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(ObservationResultsActivity.this);
                 alertDialog.setTitle("Delete?");
                 alertDialog.setMessage("Do you want to delete " + night.getUIName() + "?");
                 alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

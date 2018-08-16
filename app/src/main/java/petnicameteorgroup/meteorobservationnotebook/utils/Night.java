@@ -36,13 +36,13 @@ public class Night implements Serializable {
     public String getName() {
         return name;
     }
-    public String getUIName() { return name.replace('-', '/'); }
+    public String getUIName() { return name.replace('~', '/'); }
 
     public Note getNote(int i) {
         if (i >= 0 && i < getNoteCount()) {
             return new Note(
                     notesDir.getAbsolutePath() + File.separator + notesFilenames[i],
-                    Long.parseLong(notesFilenames[i])
+                    Long.parseLong(notesFilenames[i].replace(".png", ""))
             );
         }
         return null;
@@ -60,7 +60,7 @@ public class Night implements Serializable {
             notesDir.mkdirs();
         }
 
-        File bitmapFile = new File(notesDir, Long.toString(timestamp));
+        File bitmapFile = new File(notesDir, Long.toString(timestamp) + ".png");
         FileOutputStream out = null;
         try {
             out = new FileOutputStream(bitmapFile);

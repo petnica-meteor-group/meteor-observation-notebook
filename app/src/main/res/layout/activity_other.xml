@@ -38,4 +38,18 @@
         android:layout_marginBottom="8dp">
     </Button>
 
+    <Button
+        android:id="@+id/button_export_data"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:text="@string/export_data"
+        android:textColor="@color/menu_button_text_color"
+        android:textSize="10sp"
+        android:lineSpacingExtra="4dp"
+        android:paddingTop="5dp"
+        android:onClick="exportData"
+        android:background="@drawable/menu_button"
+        android:layout_marginBottom="8dp">
+    </Button>
+
 </LinearLayout>
