@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook.utils;
+package rs.meteori.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 
-import petnicameteorgroup.meteorobservationnotebook.utils.NoteFragment;
+import rs.meteori.meteorobservationnotebook.utils.NoteFragment;
 
 /**
  * Created by vladi on 11/2/2017.
@@ -31,6 +31,8 @@ public class NotesPagerAdapter extends FragmentStatePagerAdapter {
 
         Bundle args = new Bundle();
         args.putSerializable(NoteFragment.NOTE_ARG, night.getNote(i));
+        args.putInt(NoteFragment.COUNTER_CURRENT_ARG, i + 1);
+        args.putInt(NoteFragment.COUNTER_MAX_ARG, getCount());
         fragment.setArguments(args);
 
         return fragment;

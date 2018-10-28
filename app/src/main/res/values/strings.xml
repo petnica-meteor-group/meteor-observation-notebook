@@ -37,4 +37,5 @@
         Everything you write here is discarded and is used for testing only.
     </string>
     <string name="export_data">Export Data</string>
+    <string name="placeholder">placeholder</string>
 </resources>

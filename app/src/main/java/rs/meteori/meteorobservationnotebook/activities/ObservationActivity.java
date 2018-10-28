@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook.activities;
+package rs.meteori.meteorobservationnotebook.activities;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -15,12 +15,11 @@ import android.view.OrientationEventListener;
 import android.view.Window;
 import android.view.WindowManager;
 
-import petnicameteorgroup.meteorobservationnotebook.utils.LockInterceptor;
-import petnicameteorgroup.meteorobservationnotebook.utils.Night;
-import petnicameteorgroup.meteorobservationnotebook.utils.Nightkeeper;
-import petnicameteorgroup.meteorobservationnotebook.utils.Note;
-import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
-import petnicameteorgroup.meteorobservationnotebook.R;
+import rs.meteori.meteorobservationnotebook.utils.LockInterceptor;
+import rs.meteori.meteorobservationnotebook.utils.Night;
+import rs.meteori.meteorobservationnotebook.utils.Nightkeeper;
+import rs.meteori.meteorobservationnotebook.utils.Notebook;
+import rs.meteori.meteorobservationnotebook.R;
 
 public class ObservationActivity extends AppCompatActivity {
 

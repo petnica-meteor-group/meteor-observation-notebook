@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook.utils;
+package rs.meteori.meteorobservationnotebook.utils;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

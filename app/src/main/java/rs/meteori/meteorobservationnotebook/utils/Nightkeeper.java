@@ -1,8 +1,7 @@
-package petnicameteorgroup.meteorobservationnotebook.utils;
+package rs.meteori.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.os.Environment;
-import android.util.Log;
 
 import org.apache.commons.io.FileUtils;
 
@@ -15,8 +14,6 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import petnicameteorgroup.meteorobservationnotebook.activities.ObservationResultsActivity;
 
 /**
  * Created by schutzekatze on 11/30/17.

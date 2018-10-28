@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook.utils;
+package rs.meteori.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
+import rs.meteori.meteorobservationnotebook.utils.Notebook;
 
 /**
  * Created by vladi on 10/31/2017.

@@ -1,17 +1,17 @@
-package petnicameteorgroup.meteorobservationnotebook.activities;
+package rs.meteori.meteorobservationnotebook.activities;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
 
-import petnicameteorgroup.meteorobservationnotebook.utils.Night;
-import petnicameteorgroup.meteorobservationnotebook.utils.NotesPagerAdapter;
-import petnicameteorgroup.meteorobservationnotebook.R;
+import rs.meteori.meteorobservationnotebook.utils.Night;
+import rs.meteori.meteorobservationnotebook.utils.NotesPagerAdapter;
+import rs.meteori.meteorobservationnotebook.R;
 
 public class NotesViewActivity extends FragmentActivity {
 
-    public static String NIGHT_ARG = "petnicameteorgroup.meteorobservationnotebook.activities.NotesViewActivity.NIGHT_ARG";
+    public static String NIGHT_ARG = "rs.meteori.meteorobservationnotebook.activities.NotesViewActivity.NIGHT_ARG";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

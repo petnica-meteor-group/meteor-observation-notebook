@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="petnicameteorgroup.meteorobservationnotebook.activities.OtherActivity"
+    tools:context="rs.meteori.meteorobservationnotebook.activities.OtherActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:paddingTop="100dp"

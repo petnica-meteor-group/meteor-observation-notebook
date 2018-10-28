@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook.utils;
+package rs.meteori.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import petnicameteorgroup.meteorobservationnotebook.R;
+import rs.meteori.meteorobservationnotebook.R;
 
 /**
  * Created by vladi on 10/24/2017.

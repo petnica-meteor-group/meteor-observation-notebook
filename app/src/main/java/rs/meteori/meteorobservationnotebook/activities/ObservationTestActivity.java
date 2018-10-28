@@ -1,9 +1,9 @@
-package petnicameteorgroup.meteorobservationnotebook.activities;
+package rs.meteori.meteorobservationnotebook.activities;
 
 import android.os.Bundle;
 
-import petnicameteorgroup.meteorobservationnotebook.utils.Notebook;
-import petnicameteorgroup.meteorobservationnotebook.R;
+import rs.meteori.meteorobservationnotebook.R;
+import rs.meteori.meteorobservationnotebook.utils.Notebook;
 
 /**
  * Created by vladi on 11/3/2017.

@@ -1,12 +1,11 @@
-package petnicameteorgroup.meteorobservationnotebook.activities;
+package rs.meteori.meteorobservationnotebook.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import petnicameteorgroup.meteorobservationnotebook.R;
-import petnicameteorgroup.meteorobservationnotebook.utils.UIFont;
+import rs.meteori.meteorobservationnotebook.R;
+import rs.meteori.meteorobservationnotebook.utils.UIFont;
 
 public class InstructionsActivity extends AppCompatActivity {
 

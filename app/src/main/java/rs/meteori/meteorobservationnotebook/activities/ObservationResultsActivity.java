@@ -1,4 +1,4 @@
-package petnicameteorgroup.meteorobservationnotebook.activities;
+package rs.meteori.meteorobservationnotebook.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,16 +17,15 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.io.Serializable;
 import java.util.List;
 
-import petnicameteorgroup.meteorobservationnotebook.R;
-import petnicameteorgroup.meteorobservationnotebook.utils.Night;
-import petnicameteorgroup.meteorobservationnotebook.utils.Nightkeeper;
-import petnicameteorgroup.meteorobservationnotebook.utils.ObservationResultsAdapter;
-import petnicameteorgroup.meteorobservationnotebook.utils.UIFont;
+import rs.meteori.meteorobservationnotebook.R;
+import rs.meteori.meteorobservationnotebook.utils.Night;
+import rs.meteori.meteorobservationnotebook.utils.Nightkeeper;
+import rs.meteori.meteorobservationnotebook.utils.ObservationResultsAdapter;
+import rs.meteori.meteorobservationnotebook.utils.UIFont;
+import rs.meteori.meteorobservationnotebook.activities.NotesViewActivity;
 
 public class ObservationResultsActivity  extends AppCompatActivity {
 
