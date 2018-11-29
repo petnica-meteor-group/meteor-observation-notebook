@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">Meteor Observation Notebook</string>
+    <string name="app_name">Meteor Notebook</string>
     <string name="title_activity_notebook">NotebookActivity</string>
     <string name="begin_observation">Begin Observation</string>
     <string name="petnica_meteor_group">Petnica Meteor Group</string>
-    <string name="meteor_observation_notebook">Meteor Observation Notebook</string>
     <string name="observation_results">Observation Results</string>
     <string name="other">Other</string>
     <string name="title_activity_settings">Settings</string>
@@ -38,4 +37,5 @@
     </string>
     <string name="export_data">Export Data</string>
     <string name="placeholder">placeholder</string>
+    <string name="utc">UTC</string>
 </resources>

@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /-->
 
     <application
         android:allowBackup="true"
@@ -14,19 +14,19 @@
         android:roundIcon="@drawable/meteor_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MenuActivity">
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ObservationActivity" />
-        <activity android:name=".activities.NotesViewActivity" />
-        <activity android:name=".activities.OtherActivity" />
-        <activity android:name=".activities.ObservationResultsActivity" />
-        <activity android:name=".activities.InstructionsActivity" />
-        <activity android:name=".activities.ObservationTestActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.NotesViewActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.OtherActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationResultsActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.InstructionsActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationTestActivity" />
     </application>
 
 </manifest>

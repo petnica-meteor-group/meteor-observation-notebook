@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.hardware.SensorManager;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.VibrationEffect;
@@ -44,6 +45,9 @@ public class ObservationActivity extends AppCompatActivity {
 
     private OrientationEventListener orientationChangeListener;
     private int orientation;
+
+    private int originalVolumeRing;
+    private int originalVolumeMusic;
 
     protected synchronized void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
@@ -121,6 +125,12 @@ public class ObservationActivity extends AppCompatActivity {
                 }
             }
         }, PIN_CHECK_PERIOD_INITIAL);
+
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        originalVolumeRing = audioManager.getStreamVolume(AudioManager.STREAM_RING);
+        originalVolumeMusic = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        audioManager.setStreamVolume(AudioManager.STREAM_RING, 0, 0);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
     }
 
     @Override
@@ -157,6 +167,10 @@ public class ObservationActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+        audioManager.setStreamVolume(AudioManager.STREAM_RING, originalVolumeRing, 0);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolumeMusic, 0);
+
         vibrate(EXIT_VIBRATE_DURATION);
 
         if (isPinned()) {

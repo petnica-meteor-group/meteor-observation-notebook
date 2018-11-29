@@ -2,18 +2,11 @@ package rs.meteori.meteorobservationnotebook.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +18,6 @@ import rs.meteori.meteorobservationnotebook.utils.Night;
 import rs.meteori.meteorobservationnotebook.utils.Nightkeeper;
 import rs.meteori.meteorobservationnotebook.utils.ObservationResultsAdapter;
 import rs.meteori.meteorobservationnotebook.utils.UIFont;
-import rs.meteori.meteorobservationnotebook.activities.NotesViewActivity;
 
 public class ObservationResultsActivity  extends AppCompatActivity {
 

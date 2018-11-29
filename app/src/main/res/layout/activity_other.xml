@@ -38,7 +38,7 @@
         android:layout_marginBottom="8dp">
     </Button>
 
-    <Button
+    <!--Button
         android:id="@+id/button_export_data"
         android:layout_width="160dp"
         android:layout_height="45dp"
@@ -50,6 +50,6 @@
         android:onClick="exportData"
         android:background="@drawable/menu_button"
         android:layout_marginBottom="8dp">
-    </Button>
+    </Button-->
 
 </LinearLayout>

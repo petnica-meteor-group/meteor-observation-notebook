@@ -1,12 +1,8 @@
 package rs.meteori.meteorobservationnotebook.utils;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +35,7 @@ public class NoteFragment extends Fragment {
         imageView.setBackground(new BitmapDrawable(getResources(), note.getBitmap()));
 
         TextView clocktimeView = rootView.findViewById(R.id.note_clocktime);
-        clocktimeView.setText(note.getClockTime());
+        clocktimeView.setText(note.getClockTime() + " " + getString(R.string.utc));
 
         TextView counterView = rootView.findViewById(R.id.note_counter);
         int counterCurrent = getArguments().getInt(COUNTER_CURRENT_ARG);

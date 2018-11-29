@@ -1,9 +1,10 @@
 package rs.meteori.meteorobservationnotebook.activities;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Typeface;
+import android.media.AudioManager;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +28,7 @@ public class MenuActivity extends AppCompatActivity {
         getPermission(Manifest.permission.VIBRATE);
         getPermission(Manifest.permission.WAKE_LOCK);
         getPermission(Manifest.permission.DISABLE_KEYGUARD);
-        getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        //getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         UIFont.apply(this, (TextView) findViewById(R.id.title));
         UIFont.apply(this, (Button) findViewById(R.id.begin_observation_button));
@@ -51,6 +52,9 @@ public class MenuActivity extends AppCompatActivity {
 
     public void beginObservation(View v) {
         startActivity(new Intent(this, ObservationActivity.class));
+        if (!InstructionsActivity.read(this)) {
+            startActivity(new Intent(this, InstructionsActivity.class));
+        }
     }
 
     public void showObservationResults(View v) {

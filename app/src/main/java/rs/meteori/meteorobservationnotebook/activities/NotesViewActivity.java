@@ -3,7 +3,6 @@ package rs.meteori.meteorobservationnotebook.activities;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 
 import rs.meteori.meteorobservationnotebook.utils.Night;
 import rs.meteori.meteorobservationnotebook.utils.NotesPagerAdapter;

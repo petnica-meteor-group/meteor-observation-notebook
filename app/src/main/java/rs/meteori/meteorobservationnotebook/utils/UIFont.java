@@ -2,7 +2,6 @@ package rs.meteori.meteorobservationnotebook.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.view.View;
 import android.widget.TextView;
 
 /**

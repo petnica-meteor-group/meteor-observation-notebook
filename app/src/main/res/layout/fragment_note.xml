@@ -16,8 +16,8 @@
         android:textColor="@color/note_clocktime"
         android:textSize="17sp"
         android:text="@string/placeholder"
-        android:layout_marginTop="28dp"
-        android:layout_marginLeft="-14dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginLeft="-34dp"
         android:rotation="-90">
     </TextView>
 

@@ -1,8 +1,6 @@
 package rs.meteori.meteorobservationnotebook.utils;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,8 +8,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Created by schutzekatze on 12/3/17.

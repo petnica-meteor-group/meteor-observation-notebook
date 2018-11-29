@@ -25,7 +25,7 @@ public class OtherActivity extends AppCompatActivity {
 
         UIFont.apply(this, (Button) findViewById(R.id.button_instructions));
         UIFont.apply(this, (Button) findViewById(R.id.button_test_notebook));
-        UIFont.apply(this, (Button) findViewById(R.id.button_export_data));
+        //UIFont.apply(this, (Button) findViewById(R.id.button_export_data));
     }
 
     public void showInstructions(View v) {

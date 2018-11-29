@@ -1,16 +1,9 @@
 package rs.meteori.meteorobservationnotebook.utils;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.util.Log;
-
-import java.io.ByteArrayOutputStream;
-
-import rs.meteori.meteorobservationnotebook.utils.NoteFragment;
 
 /**
  * Created by vladi on 11/2/2017.
