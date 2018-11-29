@@ -30,7 +30,7 @@ public class ObservationActivity extends AppCompatActivity {
     protected static int CONFIRM_VIBRATE_DURATION = 100;
     protected static int EXIT_VIBRATE_DURATION = 800;
 
-    protected static int PIN_CHECK_PERIOD_INITIAL = 10000;
+    protected static int PIN_CHECK_PERIOD_INITIAL = 12000;
     protected static int PIN_CHECK_PERIOD = 4000;
 
     private Vibrator vibrator;
