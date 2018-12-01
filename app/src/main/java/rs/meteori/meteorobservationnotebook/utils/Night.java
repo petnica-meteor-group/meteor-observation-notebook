@@ -72,6 +72,7 @@ public class Night implements Serializable {
         }
 
         notesFilenames = notesDir.list();
+        Arrays.sort(this.notesFilenames);
     }
 
 }

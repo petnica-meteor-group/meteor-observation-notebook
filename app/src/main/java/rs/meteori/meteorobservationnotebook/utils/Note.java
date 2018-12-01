@@ -34,10 +34,10 @@ public class Note implements Serializable {
         return new Date(timestamp);
     }
 
-    public String getClockTime() {
+    public String getUTCClockTime() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return simpleDateFormat.format(new Date(timestamp));
+        return simpleDateFormat.format(new Date(timestamp)) + " UTC";
     }
 
 }

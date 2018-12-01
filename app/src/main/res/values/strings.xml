@@ -4,38 +4,50 @@
     <string name="begin_observation">Begin Observation</string>
     <string name="petnica_meteor_group">Petnica Meteor Group</string>
     <string name="observation_results">Observation Results</string>
-    <string name="other">Other</string>
     <string name="title_activity_settings">Settings</string>
     <string name="instructions">Instructions</string>
     <string name="test_notebook">Test Notebook</string>
     <string name="empty">Empty</string>
     <string name="nights">Nights</string>
-    <string name="instructions_text">
-        Begin observation:\n
+    <string name="instructions_text_header">
+        Begin Observation:\n
         \n
-        During this activity, you\'ll be writing down your observations. The screen
-        is black so as not to distract and drain battery. When you want to write something
-        down (meteor, cloudiness, etc), click Volume Down button to enable the notebook, which
-        lets you write anything down with your finger(s) on the screen. To confirm the writing,
-        click Volume Up which will disable the notebook and save whatever you wrote. Both of
-        these actions are confirmed by a short vibration. Volume Down also saves previous writing,
-        so you can keep clicking it after each sighting; Volume Up then turns the notebook off.
-        While the notebook is disabled (default state), you can\'t draw anything on the screen.
-        The default buttons for leaving the activity - Recent Apps, Home, Back and Lock are all disabled during
-        observation to prevent accidental leave. To finish the observation, hold down Recent Apps
-        and Back buttons.\n
+        Turns the screen black and locks it, disabling all exit buttons - Recent Apps, Home, Back, and Lock to prevent accidental leave.\n
+    </string>
+    <string name="instructions_text_list">
+        - Volume Down enables the notebook and lets you write something down on the screen with your finger(s).\n
+        - Volume Up saves what you wrote and disables the notebook.\n
+        - Holding down Recent Apps and Back ends the observation.\n
+    </string>
+    <string name="details_text_header_1">
+         Begin Observation:\n
+    </string>
+    <string name="details_text_content_1">
+        The idea here is to  not to have to look at your phone at all, hence the locking mechanism and vibration for every action.
+        Holding the phone in landscape orientation was planned when designing the button layout, but hold it in whatever position is comfortable.\n
         \n
-        Observation results:\n
-        \n
-        After you\'ve finished observing, you can find everything you\'ve written
-        in this section, divided into nights. Swipe the screen to scroll through your notes.\n
-        \n
-        Test notebook:\n
-        \n
-        A simulation of an observation notebook, where you can see what you\'re writing.
-        Everything you write here is discarded and is used for testing only.
+        There\s no restrictions to what you can write here, but ideally you\'d write every piece of relevant information, such as
+        a change in limiting magnitude, center of field of view, and, of course, meteor sightings. In case you see multiple meteors at the same time,
+        you don\'t have to keep pressing Volume Up to save notes. Repeatedly pressing Volume down will save whatever you wrote, clear the notebook,
+        and keep it enabled for next writing.\n
+    </string>
+    <string name="details_text_header_2">
+        Observation Results:\n
+    </string>
+    <string name="details_text_content_2">
+        A list of all observation nights and their notes, with exact times they were written. Time is saved when you press Volume Down, and not
+        when the note is saved, so the writing delay is not included. Swipe notes to scroll.\n
+    </string>
+    <string name="details_text_header_3">
+        Test Notebook:\n
+    </string>
+    <string name="details_text_content_3">
+        A demo of an observation book where the screen is not black, and you can see what you\'re writing. Everything you write here is discarded
+        and used for testing only.\n
     </string>
     <string name="export_data">Export Data</string>
     <string name="placeholder">placeholder</string>
     <string name="utc">UTC</string>
+    <string name="other">Other</string>
+    <string name="details">Details</string>
 </resources>

@@ -35,7 +35,7 @@ public class NoteFragment extends Fragment {
         imageView.setBackground(new BitmapDrawable(getResources(), note.getBitmap()));
 
         TextView clocktimeView = rootView.findViewById(R.id.note_clocktime);
-        clocktimeView.setText(note.getClockTime() + " " + getString(R.string.utc));
+        clocktimeView.setText(note.getUTCClockTime());
 
         TextView counterView = rootView.findViewById(R.id.note_counter);
         int counterCurrent = getArguments().getInt(COUNTER_CURRENT_ARG);

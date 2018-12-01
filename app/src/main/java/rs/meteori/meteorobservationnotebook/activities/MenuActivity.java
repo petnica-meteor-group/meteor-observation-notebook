@@ -28,7 +28,6 @@ public class MenuActivity extends AppCompatActivity {
         getPermission(Manifest.permission.VIBRATE);
         getPermission(Manifest.permission.WAKE_LOCK);
         getPermission(Manifest.permission.DISABLE_KEYGUARD);
-        //getPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         UIFont.apply(this, (TextView) findViewById(R.id.title));
         UIFont.apply(this, (Button) findViewById(R.id.begin_observation_button));

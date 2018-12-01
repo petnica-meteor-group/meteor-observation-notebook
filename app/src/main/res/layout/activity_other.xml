@@ -7,8 +7,19 @@
     tools:context="rs.meteori.meteorobservationnotebook.activities.OtherActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:paddingTop="100dp"
     android:background="@drawable/background2">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/other"
+        android:textSize="21sp"
+        android:textColor="@color/title_color"
+        android:textAlignment="center"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="46dp"
+        />
 
     <Button
         android:id="@+id/button_instructions"
@@ -20,6 +31,21 @@
         android:lineSpacingExtra="4dp"
         android:paddingTop="5dp"
         android:onClick="showInstructions"
+        android:background="@drawable/menu_button"
+        android:layout_marginBottom="8dp">
+    </Button>
+
+
+    <Button
+        android:id="@+id/button_details"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:text="@string/details"
+        android:textColor="@color/menu_button_text_color"
+        android:textSize="10sp"
+        android:lineSpacingExtra="4dp"
+        android:paddingTop="5dp"
+        android:onClick="showDetails"
         android:background="@drawable/menu_button"
         android:layout_marginBottom="8dp">
     </Button>
@@ -38,7 +64,7 @@
         android:layout_marginBottom="8dp">
     </Button>
 
-    <!--Button
+    <Button
         android:id="@+id/button_export_data"
         android:layout_width="160dp"
         android:layout_height="45dp"
@@ -50,6 +76,6 @@
         android:onClick="exportData"
         android:background="@drawable/menu_button"
         android:layout_marginBottom="8dp">
-    </Button-->
+    </Button>
 
 </LinearLayout>

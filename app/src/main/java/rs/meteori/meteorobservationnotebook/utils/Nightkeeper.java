@@ -67,15 +67,18 @@ public class Nightkeeper {
         return new Night(name, notesDir);
     }
 
-    public void exportNights(String dirname) {
+    public String exportNights(String dirname) {
         try {
+            File exportFile = new File(Environment.getExternalStorageDirectory(), dirname);
             FileUtils.copyDirectory(
                     new File(context.getFilesDir(), NIGHTS_DIR_NAME),
-                    new File(Environment.getExternalStorageDirectory(), dirname)
+                    exportFile
             );
+            return exportFile.getPath();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return "?";
     }
 
     private static String getThisNightName() {
