@@ -16,7 +16,9 @@
     </string>
     <string name="instructions_text_list">
         - Volume Down enables the notebook and lets you write something down on the screen with your finger(s).\n
+        \n
         - Volume Up saves what you wrote and disables the notebook.\n
+        \n
         - Holding down Recent Apps and Back ends the observation.\n
     </string>
     <string name="details_text_header_1">
@@ -26,7 +28,7 @@
         The idea here is to  not to have to look at your phone at all, hence the locking mechanism and vibration for every action.
         Holding the phone in landscape orientation was planned when designing the button layout, but hold it in whatever position is comfortable.\n
         \n
-        There\s no restrictions to what you can write here, but ideally you\'d write every piece of relevant information, such as
+        There\'s no restrictions to what you can write here, but ideally you\'d write every piece of relevant information, such as
         a change in limiting magnitude, center of field of view, and, of course, meteor sightings. In case you see multiple meteors at the same time,
         you don\'t have to keep pressing Volume Up to save notes. Repeatedly pressing Volume down will save whatever you wrote, clear the notebook,
         and keep it enabled for next writing.\n
@@ -44,6 +46,12 @@
     <string name="details_text_content_3">
         A demo of an observation book where the screen is not black, and you can see what you\'re writing. Everything you write here is discarded
         and used for testing only.\n
+    </string>
+    <string name="details_text_header_4">
+        Export Data:\n
+    </string>
+    <string name="details_text_content_4">
+        Exports the written notes to phone storage. Image names represent their UNIX timestamps.\n
     </string>
     <string name="export_data">Export Data</string>
     <string name="placeholder">placeholder</string>
