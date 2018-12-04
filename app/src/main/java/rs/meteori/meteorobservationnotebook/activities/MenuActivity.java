@@ -28,6 +28,7 @@ public class MenuActivity extends AppCompatActivity {
         getPermission(Manifest.permission.VIBRATE);
         getPermission(Manifest.permission.WAKE_LOCK);
         getPermission(Manifest.permission.DISABLE_KEYGUARD);
+        getPermission(Manifest.permission.ACCESS_NOTIFICATION_POLICY);
 
         UIFont.apply(this, (TextView) findViewById(R.id.title));
         UIFont.apply(this, (Button) findViewById(R.id.begin_observation_button));
@@ -51,8 +52,8 @@ public class MenuActivity extends AppCompatActivity {
 
     public void beginObservation(View v) {
         startActivity(new Intent(this, ObservationActivity.class));
-        if (!InstructionsActivity.read(this)) {
-            startActivity(new Intent(this, InstructionsActivity.class));
+        if (!InstructionsInitialActivity.read(this)) {
+            startActivity(new Intent(this, InstructionsInitialActivity.class));
         }
     }
 

@@ -58,4 +58,8 @@
     <string name="utc">UTC</string>
     <string name="other">Other</string>
     <string name="details">Details</string>
+    <string name="continue_to_observation">Continue</string>
+    <string name="name_of_exported_file">Name of exported file?</string>
+    <string name="export">Export</string>
+    <string name="cancel">Cancel</string>
 </resources>

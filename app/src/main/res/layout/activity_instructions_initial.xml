@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="rs.meteori.meteorobservationnotebook.activities.InstructionsInitialActivity"
+    android:background="@drawable/background2"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:textSize="21sp"
+        android:textColor="@color/title_color"
+        android:textAlignment="center"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="9dp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/instructions_text_header"
+                android:textColor="@color/menu_button_text_color"
+                android:textAlignment="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/instructions_text_list"
+                android:textColor="@color/menu_button_text_color"
+                android:textAlignment="textStart"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/button_continue"
+                android:layout_width="160dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:text="@string/continue_to_observation"
+                android:textColor="@color/menu_button_text_color"
+                android:textSize="10sp"
+                android:lineSpacingExtra="4dp"
+                android:paddingTop="5dp"
+                android:onClick="continueToObservation"
+                android:background="@drawable/menu_button">
+            </Button>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,18 +54,43 @@ public class OtherActivity extends AppCompatActivity {
 
     private void showExportDataDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle("Name of the exported file?");
+
+        TextView title = new TextView(this);
+        title.setText(getString(R.string.export_data));
+        title.setPadding(10, 10, 10, 10);
+        title.setGravity(Gravity.CENTER);
+        title.setTextColor(Color.BLACK);
+        title.setTextSize(20);
+        alertDialog.setCustomTitle(title);
+
+        FrameLayout container = new FrameLayout(this);
+
+        LinearLayout linearLayout = new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        linearLayout.setLayoutParams(layoutParams);
+
+        final TextView label = new TextView(this);
+        label.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        label.setText(getString(R.string.name_of_exported_file));
+        layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(0, 40, 0, 5);
+        label.setLayoutParams(layoutParams);
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
-        FrameLayout container = new FrameLayout(this);
-        FrameLayout.LayoutParams layoutParams = new  FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(40, 10, 50, 10);
+        layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins(40, 5, 50, 0);
         input.setLayoutParams(layoutParams);
-        container.addView(input);
+
+        linearLayout.addView(label);
+        linearLayout.addView(input);
+
+        container.addView(linearLayout);
+
         alertDialog.setView(container);
 
-        alertDialog.setPositiveButton("Export", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton(R.string.export, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 String path = new Nightkeeper(OtherActivity.this).exportNights(input.getText().toString());
                 Toast toast = Toast.makeText(OtherActivity.this, "Data exported to " + path, Toast.LENGTH_LONG);
@@ -72,7 +99,7 @@ public class OtherActivity extends AppCompatActivity {
                 toast.show();
             }
         });
-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 //alertDialog.dismiss();
             }

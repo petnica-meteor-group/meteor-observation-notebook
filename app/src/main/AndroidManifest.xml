@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,7 @@
         <activity android:name="rs.meteori.meteorobservationnotebook.activities.OtherActivity" />
         <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationResultsActivity" />
         <activity android:name="rs.meteori.meteorobservationnotebook.activities.InstructionsActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.InstructionsInitialActivity" />
         <activity android:name="rs.meteori.meteorobservationnotebook.activities.DetailsActivity" />
         <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationTestActivity" />
     </application>

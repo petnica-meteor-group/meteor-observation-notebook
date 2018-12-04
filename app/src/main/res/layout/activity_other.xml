@@ -24,7 +24,7 @@
     <Button
         android:id="@+id/button_instructions"
         android:layout_width="160dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:text="@string/instructions"
         android:textColor="@color/menu_button_text_color"
         android:textSize="10sp"
@@ -32,14 +32,14 @@
         android:paddingTop="5dp"
         android:onClick="showInstructions"
         android:background="@drawable/menu_button"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="12dp">
     </Button>
 
 
     <Button
         android:id="@+id/button_details"
         android:layout_width="160dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:text="@string/details"
         android:textColor="@color/menu_button_text_color"
         android:textSize="10sp"
@@ -47,13 +47,13 @@
         android:paddingTop="5dp"
         android:onClick="showDetails"
         android:background="@drawable/menu_button"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="12dp">
     </Button>
 
     <Button
         android:id="@+id/button_test_notebook"
         android:layout_width="160dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:text="@string/test_notebook"
         android:textColor="@color/menu_button_text_color"
         android:textSize="10sp"
@@ -61,13 +61,13 @@
         android:paddingTop="5dp"
         android:onClick="testNotebook"
         android:background="@drawable/menu_button"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="12dp">
     </Button>
 
     <Button
         android:id="@+id/button_export_data"
         android:layout_width="160dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:text="@string/export_data"
         android:textColor="@color/menu_button_text_color"
         android:textSize="10sp"
@@ -75,7 +75,7 @@
         android:paddingTop="5dp"
         android:onClick="exportData"
         android:background="@drawable/menu_button"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="12dp">
     </Button>
 
 </LinearLayout>

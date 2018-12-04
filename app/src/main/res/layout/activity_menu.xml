@@ -52,7 +52,7 @@
             <Button
                 android:id="@+id/begin_observation_button"
                 android:layout_width="160dp"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:text="@string/begin_observation"
                 android:textColor="@color/menu_button_text_color"
                 android:textSize="10sp"
@@ -60,13 +60,13 @@
                 android:paddingTop="5dp"
                 android:onClick="beginObservation"
                 android:background="@drawable/menu_button"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="12dp">
             </Button>
 
             <Button
                 android:id="@+id/test_observation_button"
                 android:layout_width="160dp"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:text="@string/observation_results"
                 android:textColor="@color/menu_button_text_color"
                 android:textSize="10sp"
@@ -74,13 +74,13 @@
                 android:paddingTop="5dp"
                 android:onClick="showObservationResults"
                 android:background="@drawable/menu_button"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="12dp">
             </Button>
 
             <Button
                 android:id="@+id/instructions_button"
                 android:layout_width="160dp"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:text="@string/other"
                 android:textColor="@color/menu_button_text_color"
                 android:textSize="10sp"
