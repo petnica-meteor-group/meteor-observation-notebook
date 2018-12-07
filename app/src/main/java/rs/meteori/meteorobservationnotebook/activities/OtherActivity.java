@@ -70,20 +70,13 @@ public class OtherActivity extends AppCompatActivity {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         linearLayout.setLayoutParams(layoutParams);
 
-        final TextView label = new TextView(this);
-        label.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
-        label.setText(getString(R.string.name_of_exported_file));
-        layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(0, 40, 0, 5);
-        label.setLayoutParams(layoutParams);
-
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setHint(getString(R.string.name_of_exported_file));
         layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(40, 5, 50, 0);
         input.setLayoutParams(layoutParams);
 
-        linearLayout.addView(label);
         linearLayout.addView(input);
 
         container.addView(linearLayout);

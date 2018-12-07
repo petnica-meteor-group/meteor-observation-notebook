@@ -46,8 +46,14 @@ public class ObservationActivity extends AppCompatActivity {
     private OrientationEventListener orientationChangeListener;
     private int orientation;
 
-    private int originalVolumeRing;
-    private int originalVolumeMusic;
+    private int originalVolumeRing = 0;
+    private int originalVolumeMusic = 0;
+
+    private int originalRingerMode = AudioManager.RINGER_MODE_SILENT;
+    private boolean originalSystemMute = false;
+    private boolean originalNotificationMute = false;
+    private boolean originalRingMute = false;
+    private boolean originalMusicMute = false;
 
     protected synchronized void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
@@ -126,11 +132,25 @@ public class ObservationActivity extends AppCompatActivity {
             }
         }, PIN_CHECK_PERIOD_INITIAL);
 
-        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        originalVolumeRing = audioManager.getStreamVolume(AudioManager.STREAM_RING);
-        originalVolumeMusic = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        audioManager.setStreamVolume(AudioManager.STREAM_RING, 0, 0);
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
+        //AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+
+        //originalVolumeRing = audioManager.getStreamVolume(AudioManager.STREAM_RING);
+        //originalVolumeMusic = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        //audioManager.setStreamVolume(AudioManager.STREAM_RING, 0, 0);
+        //audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
+
+        //originalRingerMode = audioManager.getRingerMode();
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //originalSystemMute = audioManager.isStreamMute(audioManager.STREAM_SYSTEM);
+            //originalNotificationMute = audioManager.isStreamMute(audioManager.STREAM_NOTIFICATION);
+            //originalRingMute = audioManager.isStreamMute(audioManager.STREAM_RING);
+            //originalMusicMute = audioManager.isStreamMute(audioManager.STREAM_MUSIC);
+        //}
+        //audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+        //audioManager.setStreamMute(AudioManager.STREAM_SYSTEM, true);
+        //audioManager.setStreamMute(AudioManager.STREAM_NOTIFICATION, true);
+        //audioManager.setStreamMute(AudioManager.STREAM_RING, true);
+        //audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
     }
 
     @Override
@@ -167,9 +187,17 @@ public class ObservationActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        audioManager.setStreamVolume(AudioManager.STREAM_RING, originalVolumeRing, 0);
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolumeMusic, 0);
+        //AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
+
+        //audioManager.setStreamVolume(AudioManager.STREAM_RING, originalVolumeRing, 0);
+        //audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, originalVolumeMusic, 0);
+
+        //audioManager.setRingerMode(originalRingerMode);
+        //audioManager.setStreamMute(AudioManager.STREAM_SYSTEM, originalSystemMute);
+        //audioManager.setStreamMute(AudioManager.STREAM_NOTIFICATION, originalNotificationMute);
+        //audioManager.setStreamMute(AudioManager.STREAM_RING, originalRingMute);
+        //audioManager.setStreamMute(AudioManager.STREAM_MUSIC, originalMusicMute);
+
 
         vibrate(EXIT_VIBRATE_DURATION);
 

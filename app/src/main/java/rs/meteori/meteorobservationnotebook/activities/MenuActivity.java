@@ -29,6 +29,7 @@ public class MenuActivity extends AppCompatActivity {
         getPermission(Manifest.permission.WAKE_LOCK);
         getPermission(Manifest.permission.DISABLE_KEYGUARD);
         getPermission(Manifest.permission.ACCESS_NOTIFICATION_POLICY);
+        getPermission(Manifest.permission.MODIFY_AUDIO_SETTINGS);
 
         UIFont.apply(this, (TextView) findViewById(R.id.title));
         UIFont.apply(this, (Button) findViewById(R.id.begin_observation_button));
