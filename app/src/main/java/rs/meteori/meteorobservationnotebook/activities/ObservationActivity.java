@@ -55,6 +55,8 @@ public class ObservationActivity extends AppCompatActivity {
     private boolean originalRingMute = false;
     private boolean originalMusicMute = false;
 
+    private float originalButtonBrightness = 0;
+
     protected synchronized void onSpecialKey(int key) {
         if (key == SPECIAL_KEY_ONE) {
             if (!notebook.isBlank()) {
@@ -132,6 +134,12 @@ public class ObservationActivity extends AppCompatActivity {
             }
         }, PIN_CHECK_PERIOD_INITIAL);
 
+        Window window = getWindow();
+        WindowManager.LayoutParams windowParams = window.getAttributes();
+        originalButtonBrightness = windowParams.buttonBrightness;
+        windowParams.buttonBrightness = WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_OFF;
+        window.setAttributes(windowParams);
+
         //AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
 
         //originalVolumeRing = audioManager.getStreamVolume(AudioManager.STREAM_RING);
@@ -198,6 +206,10 @@ public class ObservationActivity extends AppCompatActivity {
         //audioManager.setStreamMute(AudioManager.STREAM_RING, originalRingMute);
         //audioManager.setStreamMute(AudioManager.STREAM_MUSIC, originalMusicMute);
 
+        Window window = getWindow();
+        WindowManager.LayoutParams windowParams = window.getAttributes();
+        windowParams.buttonBrightness = originalButtonBrightness;
+        window.setAttributes(windowParams);
 
         vibrate(EXIT_VIBRATE_DURATION);
 
