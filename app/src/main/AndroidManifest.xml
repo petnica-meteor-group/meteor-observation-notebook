@@ -16,21 +16,40 @@
         android:roundIcon="@drawable/meteor_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.MenuActivity">
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.MenuActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationActivity" />
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.NotesViewActivity" />
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.OtherActivity" />
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationResultsActivity" />
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.InstructionsActivity" />
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.InstructionsInitialActivity" />
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.DetailsActivity" />
-        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationTestActivity" />
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationActivity"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.NotesViewActivity"
+            android:screenOrientation="sensorLandscape"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.OtherActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationResultsActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.InstructionsActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.InstructionsInitialActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.DetailsActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="rs.meteori.meteorobservationnotebook.activities.ObservationTestActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
     </application>
 
 </manifest>

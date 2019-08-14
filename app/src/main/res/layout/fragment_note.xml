@@ -6,8 +6,24 @@
 
     <ImageView
         android:id="@+id/note_image_view"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     </ImageView>
+
+    <TextView
+        android:id="@+id/note_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minEms="4"
+        android:textColor="@color/note_clocktime"
+        android:textSize="17sp"
+        android:text="@string/placeholder"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="16dp"
+        android:clickable="true"
+        android:onClick="jumpToDialog"
+        >
+    </TextView>
 
     <TextView
         android:id="@+id/note_clocktime"
@@ -16,22 +32,9 @@
         android:textColor="@color/note_clocktime"
         android:textSize="17sp"
         android:text="@string/placeholder"
-        android:layout_marginTop="48dp"
-        android:layout_marginLeft="-34dp"
-        android:rotation="-90">
-    </TextView>
-
-    <TextView
-        android:id="@+id/note_counter"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textColor="@color/note_clocktime"
-        android:textSize="17sp"
-        android:text="@string/placeholder"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="4dp"
-        android:rotation="-90">
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="8dp">
     </TextView>
 
 </RelativeLayout>

@@ -3,6 +3,9 @@ package rs.meteori.meteorobservationnotebook.activities;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.os.Build;
@@ -11,6 +14,8 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.OrientationEventListener;
 import android.view.Window;
@@ -96,8 +101,6 @@ public class ObservationActivity extends AppCompatActivity {
         getWindow().setFlags(flags, flags);
         setContentView(R.layout.activity_observation);
         notebook = (Notebook) findViewById(R.id.notebook);
-
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);

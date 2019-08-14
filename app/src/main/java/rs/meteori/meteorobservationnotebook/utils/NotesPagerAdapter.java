@@ -20,6 +20,12 @@ public class NotesPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
+        int maxItems = night.getNoteCount();
+        while (i < 0) {
+            i += maxItems;
+        }
+        i %= maxItems;
+
         Fragment fragment = new NoteFragment();
 
         Bundle args = new Bundle();

@@ -62,4 +62,5 @@
     <string name="name_of_exported_file">Name of exported file?</string>
     <string name="export">Export</string>
     <string name="cancel">Cancel</string>
+    <string name="jump_to">Jump to</string>
 </resources>
