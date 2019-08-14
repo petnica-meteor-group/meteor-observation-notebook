@@ -38,7 +38,7 @@
     </string>
     <string name="details_text_content_2">
         A list of all observation nights and their notes, with exact times they were written. Time is saved when you press Volume Down, and not
-        when the note is saved, so the writing delay is not included. Swipe notes to scroll.\n
+        when the note is saved, so the writing delay is not included. Swipe notes to scroll. Click on note numbers to jump to another note.\n
     </string>
     <string name="details_text_header_3">
         Test Notebook:\n

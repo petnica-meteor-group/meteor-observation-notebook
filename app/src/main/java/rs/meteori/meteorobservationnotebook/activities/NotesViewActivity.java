@@ -56,7 +56,7 @@ public class NotesViewActivity extends FragmentActivity {
         relativeLayout.setGravity(Gravity.CENTER);
 
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_NUMBER);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
         input.setMinEms(5);
         relativeLayout.addView(input);
 
@@ -65,7 +65,9 @@ public class NotesViewActivity extends FragmentActivity {
         builder.setPositiveButton("Jump", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                viewPager.setCurrentItem(Integer.parseInt(input.getText().toString()) - 1);
+                try {
+                    viewPager.setCurrentItem(Integer.parseInt(input.getText().toString()) - 1);
+                } catch (Exception e) {}
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
