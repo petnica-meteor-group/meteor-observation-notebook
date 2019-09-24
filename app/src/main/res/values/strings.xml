@@ -1,16 +1,15 @@
 <resources>
     <string name="app_name">Meteor Notebook</string>
-    <string name="title_activity_notebook">NotebookActivity</string>
-    <string name="begin_observation">Begin Observation</string>
+    <string name="begin_observation">Observe</string>
     <string name="petnica_meteor_group">Petnica Meteor Group</string>
-    <string name="observation_results">Observation Results</string>
+    <string name="observation_results">Nights</string>
     <string name="title_activity_settings">Settings</string>
     <string name="instructions">Instructions</string>
     <string name="test_notebook">Test Notebook</string>
     <string name="empty">Empty</string>
     <string name="nights">Nights</string>
     <string name="instructions_text_header">
-        Begin Observation:\n
+        Observe:\n
         \n
         Turns the screen black and locks it, disabling all exit buttons - Recent Apps, Home, Back, and Lock to prevent accidental leave.\n
     </string>
@@ -22,19 +21,19 @@
         - Holding down Recent Apps and Back ends the observation.\n
     </string>
     <string name="details_text_header_1">
-         Begin Observation:\n
+         Observe:\n
     </string>
     <string name="details_text_content_1">
         The idea here is to  not to have to look at your phone at all, hence the locking mechanism and vibration for every action.
         Holding the phone in landscape orientation was planned when designing the button layout, but hold it in whatever position is comfortable.\n
         \n
-        There\'s no restrictions to what you can write here, but ideally you\'d write every piece of relevant information, such as
-        a change in limiting magnitude, center of field of view, and, of course, meteor sightings. In case you see multiple meteors at the same time,
+        There\'s no restriction to what you can write here, but ideally you\'d write every piece of relevant information, such as
+        a change in limiting magnitude, center of field of view, and meteor sightings. In case you see multiple meteors at the same time,
         you don\'t have to keep pressing Volume Up to save notes. Repeatedly pressing Volume down will save whatever you wrote, clear the notebook,
         and keep it enabled for next writing.\n
     </string>
     <string name="details_text_header_2">
-        Observation Results:\n
+        Nights:\n
     </string>
     <string name="details_text_content_2">
         A list of all observation nights and their notes, with exact times they were written. Time is saved when you press Volume Down, and not

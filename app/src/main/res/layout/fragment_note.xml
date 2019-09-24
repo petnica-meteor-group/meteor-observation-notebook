@@ -19,7 +19,7 @@
         android:textSize="17sp"
         android:text="@string/placeholder"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="24dp"
         android:clickable="true"
         android:onClick="jumpToDialog"
         >
